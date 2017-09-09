@@ -1,0 +1,45 @@
+<!-- <div>
+	<div class="input-group">
+	  <span class="input-group-addon">Vault Password</span>
+	  <input type="text" class="form-control" placeholder="vPasswd" [(ngModel)]="passwdInfo.passwd">
+	</div>
+	<div class="input-group">
+	  <span class="input-group-addon">Salt</span>
+	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.salt">
+	  <span class="input-group-addon">If you don't provide then tool can generate it for you, but you have to remember it when decrypting it</span>
+	</div>
+	<div *ngIf="!passwdInfo.encryptedPasswd">
+		<button class="btn btn-primary" type="button" (click)="submitInput()">Submit to get generated password</button>
+	</div>
+	<h3 *ngIf="passwdInfo.generatedPasswd"><span class="label label-default">Genereated Password</span>{{passwdInfo.generatedPasswd}}</h3>
+	<h3 *ngIf="passwdInfo.encryptedPasswd"><span class="label label-default">Encrypted Password</span>{{passwdInfo.encryptedPasswd}}</h3>
+</div> -->
+
+
+<div class="container-fluid">
+	<div class="form-group required">
+	  <label>*Vault Password:</label>
+	  <input type="text" class="form-control" placeholder="vPasswd" [(ngModel)]="passwdInfo.passwd" required>
+	</div>
+	<div class="form-group">
+	  <label>*Salt:</label>
+	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.salt">
+	</div>
+	<div class="form-group">
+	  <label>*Encrypted Password:</label>
+	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.encryptedPasswd">
+	</div>
+	<div class="form-group" *ngIf="!passwdInfo.generatedPasswd">
+		<button class="btn btn-success" type="button" (click)="submitInput()">Submit to get generated password</button>
+	</div>
+	<div class="input-group form-group" *ngIf="passwdInfo.generatedPasswd">
+	  <span class="input-group-addon">Generated Password</span>
+	  <span class="form-control" >{{passwdInfo.generatedPasswd}}</span>
+	  <span class="input-group-btn">
+        <button class="btn btn-default" [class.btn-success]= "isCopiedE" type="button" ngxClipboard [cbContent]="passwdInfo.generatedPasswd" (cbOnSuccess)="isCopiedE = true">Copy to clipboard</button>
+      </span>
+	</div>
+	<div class="form-group" *ngIf="passwdInfo.generatedPasswd">
+		<button class="btn btn-warning" type="button" (click)="resetInput()">Reset</button>
+	</div>
+</div>
