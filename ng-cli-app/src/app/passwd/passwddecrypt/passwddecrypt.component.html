@@ -27,10 +27,10 @@
 	</div>
 	<div class="form-group">
 	  <label>*Encrypted Password:</label>
-	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.encryptedPasswd">
+	  <input type="text" class="form-control" placeholder="encrypted password string" [(ngModel)]="passwdInfo.encryptedPasswd">
 	</div>
 	<div class="form-group" *ngIf="!passwdInfo.generatedPasswd">
-		<button class="btn btn-success" type="button" (click)="submitInput()">Submit to get generated password</button>
+		<button [disabled]="!isAllFieldsPopulated()" class="btn btn-primary" type="button" (click)="submitInput()">Submit to get generated password</button>
 	</div>
 	<div class="input-group form-group" *ngIf="passwdInfo.generatedPasswd">
 	  <span class="input-group-addon">Generated Password</span>

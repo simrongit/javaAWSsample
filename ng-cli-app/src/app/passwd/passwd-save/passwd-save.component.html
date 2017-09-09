@@ -1,0 +1,42 @@
+<div class="container-fluid">
+
+	<div class="row">
+	    <div class="input-group">
+	      <span class="input-group-addon">
+			<input type="checkbox" class="checkbox-primary" [(ngModel)]="existingUser">
+	      </span>
+	      <span *ngIf="existingUser" class="help-block">Existing User</span>
+	      <span *ngIf="!existingUser" class="help-block">Create New User for saving password</span>
+	    </div><!-- /input-group -->
+	</div><!-- /row -->
+	
+	<div class="form-group">
+	  <label>User Id</label>
+	  <input type="text" class="form-control" placeholder="user id for saving encrypted password" [(ngModel)]="passwdSaveInfo.userId" required>
+	</div>
+	<div class="form-group">
+	  <label>Passcode</label>
+	  <input type="text" class="form-control" placeholder="4 digit" [(ngModel)]="passwdSaveInfo.passCode">
+	</div>
+	<br/>
+	<div class="form-group">
+	  <label>Reference Text</label>
+	  <input type="text" class="form-control" placeholder="Some text which can tell what this password is for, for e.g. website name" [(ngModel)]="passwdSaveInfo.refText">
+	</div>
+	<div class="form-group">
+		<label>Encrypted Password</label>
+		<input type="text" class="form-control" [(ngModel)]="passwdSaveInfo.encPasswd">
+	</div>
+	
+	<div class="form-group" > <!-- two condition like isPopulated(passwdSaveInfo) && !existingUser doesn't work for disabled property but work in *ngIf -->
+		<button [disabled]="!isPopulated() || !existingUser" class="btn btn-primary" type="button" (click)="submitInput()">Submit to save</button> <!--  how to enable disable [disabled] didn't work -->
+		<button [disabled]="!isPopulated() || existingUser" class="btn btn-primary" type="button" (click)="createUser()">Create New</button>
+	</div>
+	
+	<div class="form-group"  >
+	<span class="help-block">{{message}}</span>
+	</div>
+
+
+
+</div>

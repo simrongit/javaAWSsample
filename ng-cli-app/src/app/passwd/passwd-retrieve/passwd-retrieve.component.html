@@ -1,0 +1,26 @@
+<div class="container-fluid">
+	<div *ngIf="!retrieved">
+		<div class="form-group">
+		  <label>User Id</label>
+		  <input type="text" class="form-control" placeholder="user id for saving encrypted password" [(ngModel)]="passwdSaveInfo.userId" required>
+		</div>
+		<div class="form-group">
+		  <label>Passcode</label>
+		  <input type="text" class="form-control" placeholder="4 digit" [(ngModel)]="passwdSaveInfo.passCode">
+		</div>
+		<div class="form-group" >
+		<button class="btn btn-primary" type="button" (click)="submitInput()">Submit to get list</button>
+	</div>
+	</div>
+	<span class="help-block">{{message}}</span>
+	<div *ngIf="retrieved">
+		<table class="table">
+			<tr>
+				<th>Reference Text</th><th>Encrypted Password</th><th></th>
+			</tr>
+			<tr *ngFor="let key of objectKeys(mapObject)">
+				<td>{{key}}</td><td>{{mapObject[key]}}</td><td><a routerLink="../pdec" class="btn btn-success pull-right" (click)="decPasswd(mapObject[key]);" > Decrypt it </a></td>
+			</tr>
+		</table>
+	</div>
+</div>

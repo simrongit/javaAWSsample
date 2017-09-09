@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {PasswdInfo} from '../passwd.component';
 import {HttpService} from '../../services/http.comp';
+import {ShareDataService} from '../../services/share-data-service';
 
 @Component({
   selector: 'app-passwddecrypt',
@@ -9,15 +10,18 @@ import {HttpService} from '../../services/http.comp';
 })
 export class PasswddecryptComponent implements OnInit {
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private shareDataService: ShareDataService) {}
+
 
   isCopiedE: false;
-  passwdInfo: PasswdInfo = {
-    passwd: '',
-    salt: '',
-    generatedPasswd: '',
-    encryptedPasswd: ''
-  };
+  passwdInfo: PasswdInfo = PasswdInfo.getEmptyInstance();
+
+  isAllFieldsPopulated(): boolean {
+    return this.passwdInfo !== undefined
+      && this.passwdInfo.passwd !== undefined && this.passwdInfo.passwd.length > 0
+      && this.passwdInfo.salt !== undefined && this.passwdInfo.salt.length > 0
+      && this.passwdInfo.encryptedPasswd !== undefined && this.passwdInfo.encryptedPasswd.length > 0;
+  }
 
   submitInput() {
     console.log('passwdgen http call');
@@ -39,6 +43,7 @@ export class PasswddecryptComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.passwdInfo.encryptedPasswd = this.shareDataService.sharedEncPasswd;
   }
 
 }

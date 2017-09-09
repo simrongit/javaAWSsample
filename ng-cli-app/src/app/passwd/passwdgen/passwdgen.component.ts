@@ -1,6 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {PasswdInfo} from '../passwd.component';
 import {HttpService} from '../../services/http.comp';
+import {ShareDataService} from '../../services/share-data-service';
+import {Subscription} from 'rxjs';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-passwdgen',
@@ -9,7 +12,7 @@ import {HttpService} from '../../services/http.comp';
 })
 export class PasswdgenComponent implements OnInit {
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private shareDataService: ShareDataService, private router: Router) { }
 
   isCopiedG = false;
   isCopiedE = false;
@@ -25,13 +28,18 @@ export class PasswdgenComponent implements OnInit {
   }
 
   resetInput() {
-    this.passwdInfo = { // TODO change it to PasswdInfo.getEmptyInstance();
-      passwd: '',
-      salt: '',
-      generatedPasswd: '',
-      encryptedPasswd: ''
-    };
+    this.passwdInfo = PasswdInfo.getEmptyInstance();
+    this.shareDataService.sharedEncPasswd = ''; // reseting shared information as well
   }
+
+  savePasswd() {
+    this.shareDataService.sharedEncPasswd = this.passwdInfo.encryptedPasswd;
+  }
+
+  changeRoute(routeValue) { // not used now, just kept for reference
+    this.router.navigate([routeValue]);
+  }
+
   ngOnInit() {
   }
 

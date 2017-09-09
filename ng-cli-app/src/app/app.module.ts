@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
 import {HttpClientModule} from '@angular/common/http';
 import {RouterModule} from '@angular/router';
+// import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 // import {PasswdModule} from './passwd/passwd.module';
 import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
@@ -11,9 +12,15 @@ import {AppComponent} from './app.component';
 import {HttpService} from './services/http.comp';
 import {PasswdComponent} from './passwd/passwd.component';
 import {LuhnalgComponent} from './luhnalg/luhnalg.component';
+import {NotUsedFeatureComponent} from './not-used-feature/not-used-feature.component';
 import {PasswdgenComponent} from './passwd/passwdgen/passwdgen.component';
 import {PasswddecryptComponent} from './passwd/passwddecrypt/passwddecrypt.component';
+import {PasswdSaveComponent} from './passwd/passwd-save/passwd-save.component';
+import {PasswdRetrieveComponent} from './passwd/passwd-retrieve/passwd-retrieve.component';
+import {PasswdAboutComponent} from './passwd/passwd-about/passwd-about.component';
 import {ClipboardModule} from 'ngx-clipboard';
+// import {PasswdService} from './passwd/passwd.service';
+import {ShareDataService} from './services/share-data-service';
 
 // import {AppRoutingModule} from './app-routing.module';
 import {Router} from '@angular/router';
@@ -25,20 +32,26 @@ import {appRoutes} from './approute';
     PasswdComponent,
     LuhnalgComponent,
     PasswdgenComponent,
-    PasswddecryptComponent
+    PasswddecryptComponent,
+    PasswdSaveComponent,
+    PasswdRetrieveComponent,
+    PasswdAboutComponent,
+    NotUsedFeatureComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
     FormsModule,
+//    ReactiveFormsModule,
     ClipboardModule,
     //    PasswdModule,
     RouterModule.forRoot(
       appRoutes
     )
   ],
-  providers: [HttpService,
+  providers: [HttpService, // PasswdService,
+    ShareDataService,
     Location,
     {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
