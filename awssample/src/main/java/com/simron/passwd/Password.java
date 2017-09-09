@@ -1,9 +1,12 @@
 package com.simron.passwd;
 
 import java.nio.charset.Charset;
+import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
@@ -22,6 +25,7 @@ import org.springframework.util.StringUtils;
 //https://stackoverflow.com/questions/992019/java-256-bit-aes-password-based-encryption
 //http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
 
+import com.simron.awssample.DbInteraction;
 import com.simron.utils.LoggerFactory;
 
 @Service
@@ -36,6 +40,11 @@ public class Password {
 	@PostConstruct
 	private void init() {
 		logger = loggerFactory.getLogger(Password.class, "passwordApp");
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	private final String CipherAlgorithim = "AES/CBC/PKCS5Padding"; //ECB could have been used to avoid iv padding. However iv padding is supposed to provide more security but it is recommended to use different iv each time. I am assuming CBC with fixed iv will be better than ECB as hacking into application to get hard coded iv is difficult. 
@@ -56,6 +65,7 @@ public class Password {
 		passwordInfo.setGeneratedPasswd(generatedPassword);
 		
 		String encryped = ecnryptPassword(passwordInfo.getPasswd(), passwordInfo.getSalt(), generatedPassword);
+		System.out.println("Encrypted length "+encryped.length());
 		passwordInfo.setEncryptedPasswd(encryped);
 	}
 	
@@ -131,6 +141,132 @@ public class Password {
 			}
 		}
 		return salt;
+	}
+
+	/**
+	 * Success, User exist, Save to DB failed, User not found, User not authenticated
+	 * 
+	 * @param passwdSaveInfo
+	 * @param skipUserValidation
+	 * @return
+	 */
+	public String validateAndsavePassword(PasswordSaveInfo passwdSaveInfo, Boolean skipUserValidation) {
+		String hashedUserId = performHashingWithHexResult(passwdSaveInfo.getUserId());
+		String userIdStatus = queryDBForUserId(hashedUserId);
+		String retVal;
+		if(skipUserValidation) {
+			if (userIdStatus.equals("Success")) {
+				retVal = "User exist";
+			}else {
+				boolean status = storePasswdInDB(passwdSaveInfo);
+				if(status) {
+					retVal = "Success";
+				}else {
+					retVal = "Save to DB failed";
+				}
+			}
+		}else{
+			if (!userIdStatus.equals("Success")) {
+				retVal = "User not found";
+			}else {
+				String hashedPassCode = performHashingWithHexResult(passwdSaveInfo.getPassCode());
+				String userExistStatus = queryDBForUserAndPassCode(hashedUserId, hashedPassCode);
+				if (!userExistStatus.equals("Success")) {
+					retVal = "User not authenticated";
+				}else {
+					boolean status = storePasswdInDB(passwdSaveInfo);
+					if(status) {
+						retVal = "Success";
+					}else {
+						retVal = "Save to DB failed";
+					}
+				}
+			}
+		}
+		System.out.println("Save Password");
+		return retVal;
+	}
+	
+	private MessageDigest md = null;
+	
+	public String validateUser (String userId, String passCode) {
+		String hashedUserId = performHashingWithHexResult(userId);
+		String hashedPassCode = performHashingWithHexResult(passCode);
+		String returnStr = "";
+		String userIdStatus = queryDBForUserId(hashedUserId);
+		if(userIdStatus.equals("Success")) {
+			String userExistStatus = queryDBForUserAndPassCode(hashedUserId, hashedPassCode);
+			if(userExistStatus.equals("Success")) {
+				returnStr = "Success";
+			} else {
+				returnStr = "User not authenticated";
+			}
+		}else {
+			returnStr = "User not found";
+		}
+		return returnStr;
+	}
+
+	private String performHashingWithHexResult(String str) {
+		md.update(str.getBytes());
+		byte[] hashedBytes = md.digest();
+		String hashedHexBytes = DatatypeConverter.printHexBinary(hashedBytes);
+		System.out.println("hash length for "+str+" is "+hashedHexBytes.length());
+		md.reset();
+		return hashedHexBytes;
+	}
+
+	private static final String checkUserQuery = "select 1 from encrypted_passwd_storage where user_id = ?";
+	private static final String checkUsePassCoderQuery = "select 1 from encrypted_passwd_storage where user_id = ? and pass_code = ?";
+	private static final String getDataQuery="select password_text, enc_password from encrypted_passwd_storage where user_id = ? and pass_code = ?";
+	private static final String insertDataQuery="insert into encrypted_passwd_storage values (?,?,?,?)";
+
+	private Map<String, String> queryDBForUser(String hashedUserId, String hashedPassCode) {
+		String[][] data = DbInteraction.executeQuery(getDataQuery, new String[] {hashedUserId, hashedPassCode});
+		Map<String, String> result = new HashMap<>(); //why to create map?
+		for(String[] row : data) {
+			result.put(row[0], row[1]); 
+		}
+//		result.put("site 1", "111111111111111111111111222222222222");
+//		result.put("google", "XXXXXXXXXXXXEEEEEEEEEEEEEEE@@@@@@@@@@@@@@@@");
+//		result.put("site something", "YYYYYYYYYYYYXXXXXXXXXXXXXXXXX");
+		return result;
+	}
+
+	private boolean storePasswdInDB(PasswordSaveInfo passwdSaveInfo) {
+		String hashedUserId = performHashingWithHexResult(passwdSaveInfo.getUserId());
+		String hashedPassCode = performHashingWithHexResult(passwdSaveInfo.getPassCode());
+		DbInteraction.executeInsert(insertDataQuery, new String[] {hashedUserId, hashedPassCode, passwdSaveInfo.getRefText(), passwdSaveInfo.getEncPasswd()});
+		return true; // need to fix it
+	}
+
+	private String queryDBForUserAndPassCode(String hashedUserId, String hashedPassCode) {
+		String[][] data = DbInteraction.executeQuery(checkUsePassCoderQuery, new String[] {hashedUserId, hashedPassCode});
+		String retStr = null;
+		if(data[0][0] != null && data[0][0].equals("1")) {
+			retStr = "Success";
+		}else {
+			retStr = "Failed";
+		}
+		return retStr;
+	}
+
+	private String queryDBForUserId(String hashedUserId) {
+		String[][] data = DbInteraction.executeQuery(checkUserQuery, new String[] {hashedUserId});
+		String retStr = null;
+		if(data != null && data.length > 0 && data[0].length > 0 && data[0][0] != null && data[0][0].equals("1")) {
+			retStr = "Success";
+		}else {
+			retStr = "Failed";
+		}
+		return retStr;
+	}
+
+	public Map<String, String> retrievePassword(String userId, String passCode) {
+		String hashedUserId = performHashingWithHexResult(userId);
+		String hashedPassCode = performHashingWithHexResult(passCode);
+		Map<String, String> siteAndPasswd = queryDBForUser(hashedUserId, hashedPassCode);
+		return siteAndPasswd;
 	}
 
 }
