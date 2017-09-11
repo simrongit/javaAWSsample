@@ -18,8 +18,14 @@ export class HttpService {
   public getS(url: string): Observable<any> {
     return this.httpClient.get(url, {responseType: 'text'});
   }
-  public getP(url: string): Observable<any> {
-    const params = new HttpParams().set('name', 'manveen');
+  public getP(url: string, obj: object): Observable<any> {
+    let params = new HttpParams();
+    for (const key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        console.log(key + ' ' + obj[key]);
+        params = params.append(key, obj[key]); // .append returns clone hence need to recapture it
+      }
+    }
     const options = {params: params};
     return this.httpClient.get(url, options); // this also works return this.httpClient.get(url, {params: params});
   }

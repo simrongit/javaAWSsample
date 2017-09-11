@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, OnDestroy} from '@angular/core';
 import {PasswdInfo} from '../passwd.component';
 import {HttpService} from '../../services/http.comp';
 import {ShareDataService} from '../../services/share-data-service';
@@ -8,7 +8,7 @@ import {ShareDataService} from '../../services/share-data-service';
   templateUrl: './passwddecrypt.component.html',
   styleUrls: ['./passwddecrypt.component.css']
 })
-export class PasswddecryptComponent implements OnInit {
+export class PasswddecryptComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: HttpService, private shareDataService: ShareDataService) {}
 
@@ -44,6 +44,10 @@ export class PasswddecryptComponent implements OnInit {
 
   ngOnInit() {
     this.passwdInfo.encryptedPasswd = this.shareDataService.sharedEncPasswd;
+  }
+
+  ngOnDestroy() {
+    this.shareDataService.sharedEncPasswd = undefined; // this is for case when user jumped from retrieve to decrypt, in this case this value get shown in save screen as well
   }
 
 }

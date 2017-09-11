@@ -8,7 +8,7 @@ import {ShareDataService} from '../../services/share-data-service';
   templateUrl: './passwd-save.component.html',
   styleUrls: ['./passwd-save.component.css']
 })
-export class PasswdSaveComponent implements OnInit { // , OnDestroy {
+export class PasswdSaveComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: HttpService, private shareDataService: ShareDataService) {}
 
@@ -61,4 +61,9 @@ export class PasswdSaveComponent implements OnInit { // , OnDestroy {
         }
       });
   }
+
+  ngOnDestroy() {
+    this.shareDataService.sharedEncPasswd = undefined; // this is for case when user jumped from generate to save, in this case this value get shown in retrieve screen as well
+  }
+
 }

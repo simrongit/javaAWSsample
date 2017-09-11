@@ -3,31 +3,33 @@
 	  <span class="input-group-addon">Vault Password</span>
 	  <input type="text" class="form-control" placeholder="vPasswd" [(ngModel)]="passwdInfo.passwd">
 	</div>
-	<div class="input-group">
-	  <span class="input-group-addon">Salt</span>
-	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.salt">
-	  <span class="input-group-addon">If you don't provide then tool can generate it for you, but you have to remember it when decrypting it</span>
-	</div>
-	<div *ngIf="!passwdInfo.encryptedPasswd">
-		<button class="btn btn-primary" type="button" (click)="submitInput()">Submit to get generated password</button>
-	</div>
-	<h3 *ngIf="passwdInfo.generatedPasswd"><span class="label label-default">Genereated Password</span>{{passwdInfo.generatedPasswd}}</h3>
-	<h3 *ngIf="passwdInfo.encryptedPasswd"><span class="label label-default">Encrypted Password</span>{{passwdInfo.encryptedPasswd}}</h3>
 </div> -->
 
 
 <div class="container-fluid">
-	<div class="form-group required">
+	<div class="form-group"> <!-- input group can be used but it shorten the input length -->
 	  <label>*Vault Password:</label>
-	  <input type="text" class="form-control" placeholder="vPasswd" [(ngModel)]="passwdInfo.passwd" required>
+	  {{passwdInfo.passwd}}
+	  <input type="text" class="form-control" required #passwdv="ngModel" placeholder="Big valut password" [(ngModel)]="passwdInfo.passwd">
+	  <div *ngIf="passwdv.invalid && (passwdv.dirty || passwdv.touched)" class="alert alert-danger">
+			<div *ngIf="passwdv.errors.required">Valut password is mandatory.</div>
+	  </div>
 	</div>
 	<div class="form-group">
 	  <label>*Salt:</label>
-	  <input type="text" class="form-control" placeholder="8 digit" [(ngModel)]="passwdInfo.salt">
+	  <input type="text" class="form-control" required pattern="^[0-9]{8,8}$" #saltv="ngModel" placeholder="8 digit salt" [(ngModel)]="passwdInfo.salt">
+	  <div *ngIf="saltv.invalid && (saltv.dirty || saltv.touched)" class="alert alert-danger">
+			<div *ngIf="saltv.errors.pattern">Digit only and must be 8 characters long.</div>
+			<div *ngIf="saltv.errors.required">Salt is mandatory.</div>
+	  </div>
 	</div>
 	<div class="form-group">
 	  <label>*Encrypted Password:</label>
-	  <input type="text" class="form-control" placeholder="encrypted password string" [(ngModel)]="passwdInfo.encryptedPasswd">
+	  <input type="text" class="form-control" required pattern="^.{32,32}$" #encv="ngModel" placeholder="encrypted password string" [(ngModel)]="passwdInfo.encryptedPasswd">
+	  <div *ngIf="encv.invalid && (encv.dirty || encv.touched)" class="alert alert-danger">
+			<div *ngIf="encv.errors.pattern">It's length has to be exact 32</div>
+			<div *ngIf="encv.errors.required">To decrypt you need to provide encrypted password.</div>
+	  </div>
 	</div>
 	<div class="form-group" *ngIf="!passwdInfo.generatedPasswd">
 		<button [disabled]="!isAllFieldsPopulated()" class="btn btn-primary" type="button" (click)="submitInput()">Submit to get generated password</button>
