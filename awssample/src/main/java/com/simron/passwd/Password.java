@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.logging.Logger;
 
 import javax.annotation.PostConstruct;
+import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
 import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
@@ -65,7 +66,6 @@ public class Password {
 		passwordInfo.setGeneratedPasswd(generatedPassword);
 		
 		String encryped = ecnryptPassword(passwordInfo.getPasswd(), passwordInfo.getSalt(), generatedPassword);
-		System.out.println("Encrypted length "+encryped.length());
 		passwordInfo.setEncryptedPasswd(encryped);
 	}
 	
@@ -84,8 +84,12 @@ public class Password {
 			cipher.init(Cipher.DECRYPT_MODE, secret, ivParameterSpec);
 			byte[] decryptedBytes = cipher.doFinal(DatatypeConverter.parseHexBinary(encryptedPassword));
 			plaintext = new String(decryptedBytes,Charset.defaultCharset());
-			logger.finer("Encrypted String "+plaintext);
+//			logger.finer("Decrypted String "+plaintext);
+		}catch(BadPaddingException e) {
+			// assuming this exception comes only when provided passwd, salt or encrypted password is wrong
+			// so null is returned and that is interpreted on front end
 		}catch(Exception e) {
+			plaintext = "Failed";
 			e.printStackTrace();
 		}
 		return plaintext;
@@ -211,7 +215,6 @@ public class Password {
 		md.update(str.getBytes());
 		byte[] hashedBytes = md.digest();
 		String hashedHexBytes = DatatypeConverter.printHexBinary(hashedBytes);
-		System.out.println("hash length for "+str+" is "+hashedHexBytes.length());
 		md.reset();
 		return hashedHexBytes;
 	}
@@ -227,9 +230,6 @@ public class Password {
 		for(String[] row : data) {
 			result.put(row[0], row[1]); 
 		}
-//		result.put("site 1", "111111111111111111111111222222222222");
-//		result.put("google", "XXXXXXXXXXXXEEEEEEEEEEEEEEE@@@@@@@@@@@@@@@@");
-//		result.put("site something", "YYYYYYYYYYYYXXXXXXXXXXXXXXXXX");
 		return result;
 	}
 
@@ -271,106 +271,3 @@ public class Password {
 
 }
 
-/*
-
-package home;
-
-import java.security.AlgorithmParameters;
-import java.security.spec.KeySpec;
-
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
-import javax.xml.bind.DatatypeConverter;
-
-public class Password {
-
-	public static void main(String[] args) {
-		int counter = 0;
-		String generatedPassword = "";
-		while (counter != 25) {
-			Double d = Math.random() * 128;
-			Integer oneChar = d.intValue();
-			if (oneChar >= 33 && oneChar <= 126) {
-				generatedPassword += (char) oneChar.byteValue();
-				++counter;
-			}
-		}
-		System.out.println(generatedPassword);
-		String salt = "";
-		counter = 0;
-		while (counter != 8) {
-			Double d = Math.random() * 128;
-			Integer oneChar = d.intValue();
-			if (oneChar >= 48 && oneChar <= 57) {
-				salt += (char) oneChar.byteValue();
-				++counter;
-			}
-		}
-		System.out.println(salt);
-		System.out.println(salt.getBytes().length);
-		String myPassword = "myPassword";
-		try {
-			// Derive the key, given password and salt. 
-			SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-			KeySpec spec = new PBEKeySpec(myPassword.toCharArray(), salt.getBytes(), 65536, 256);
-			SecretKey tmp = factory.generateSecret(spec);
-			SecretKey secret = new SecretKeySpec(tmp.getEncoded(), "AES");
-
-			// Encrypt the message. 
-			Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			cipher.init(Cipher.ENCRYPT_MODE, secret);
-			AlgorithmParameters params = cipher.getParameters();
-			byte[] ciphertext = cipher.doFinal(generatedPassword.getBytes("UTF-8"));
-			String hexStr = DatatypeConverter.printHexBinary(ciphertext);
-			System.out.println(hexStr);
-//			ciphertext = ct.getBytes();
-			// Decrypt the message, given derived key and initialization vector.
-			cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-			byte[] iv = params.getParameterSpec(IvParameterSpec.class).getIV();
-			cipher.init(Cipher.DECRYPT_MODE, secret, new IvParameterSpec(iv));
-			String plaintext = new String(cipher.doFinal(DatatypeConverter.parseHexBinary(hexStr)), "UTF-8");
-			System.out.println(plaintext);
-			
-//			KeyGenerator keygenerator = KeyGenerator.getInstance("DES");
-//		    SecretKey myDesKey = keygenerator.generateKey();
-//
-//		    Cipher desCipher;
-//
-//		    // Create the cipher
-//		    desCipher = Cipher.getInstance("DES/ECB/PKCS5Padding");
-//
-//		    // Initialize the cipher for encryption
-//		    desCipher.init(Cipher.ENCRYPT_MODE, myDesKey);
-//
-//		    //sensitive information
-//
-//		    System.out.println("Text : " + generatedPassword);
-//
-//		    // Encrypt the text
-//		    byte[] textEncrypted = desCipher.doFinal(generatedPassword.getBytes());
-//
-//		    System.out.println("Text Encryted : " + new String(textEncrypted));
-//
-//		    // Initialize the same cipher for decryption
-//		    desCipher.init(Cipher.DECRYPT_MODE, myDesKey);
-//
-//		    // Decrypt the text
-//		    byte[] textDecrypted = desCipher.doFinal(textEncrypted);
-//
-//		    System.out.println("Text Decryted : " + new String(textDecrypted));
-//			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-}
-
-// https://stackoverflow.com/questions/992019/java-256-bit-aes-password-based-encryption
-// http://www.oracle.com/technetwork/java/javase/downloads/jce8-download-2133166.html
-
-
-*/
