@@ -74,7 +74,8 @@ export class HttpService {
 
 
 
-  public postRetVoid(url: string, objToPost: object): Observable<any> {
+  public postRetVoid(url: string, objToPost: object, thisObj: any): Observable<any> {
+    thisObj.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost); // for error handling use errorResponse.error.message
   }
 
@@ -82,11 +83,13 @@ export class HttpService {
     return this.httpClient.post(url, objToPost, {responseType: 'text'}); // return media type should be text you can access  error as errorResponse.error
   }
 
-  public postRetAny(url: string, objToPost: object): Observable<any> {
+  public postRetAny(url: string, objToPost: object, thisObj: any): Observable<any> { // this is passed just to set message
+    thisObj.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost);
   }
 
-  public postRetObj(url: string, objToPost: object): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
+  public postRetObj(url: string, objToPost: object, thisObj: any): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
+    thisObj.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost);
   }
 

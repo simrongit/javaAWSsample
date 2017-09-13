@@ -12,34 +12,34 @@ export class PasswddecryptComponent implements OnInit, OnDestroy {
 
   constructor(private httpService: HttpService, private shareDataService: ShareDataService) {}
 
-
+  message = '';
   isCopiedE: false;
   passwdInfo: PasswdInfo = PasswdInfo.getEmptyInstance();
 
-  isAllFieldsPopulated(): boolean {
-    return this.passwdInfo !== undefined
-      && this.passwdInfo.passwd !== undefined && this.passwdInfo.passwd.length > 0
-      && this.passwdInfo.salt !== undefined && this.passwdInfo.salt.length > 0
-      && this.passwdInfo.encryptedPasswd !== undefined && this.passwdInfo.encryptedPasswd.length > 0;
-  }
-
   submitInput() {
-    console.log('passwdgen http call');
-    this.httpService
-      .postT('/decryptPasswd', this.passwdInfo)
-      .subscribe(result => {
-        this.passwdInfo = result;
-        console.log(this.passwdInfo);
+    this.httpService.postRetAny('/decryptPasswd', this.passwdInfo, this).subscribe(
+      res => {
+        this.passwdInfo = res;
+        if (!this.passwdInfo.generatedPasswd) {
+          this.message = 'Decryption was unsuccesful. Check your vault password and salt or provided encrypted password is incorrect.';
+        } else if (this.passwdInfo.generatedPasswd === 'Failed') {
+          this.passwdInfo.generatedPasswd = '';
+          this.message = 'Backend error occured E1';
+        } else {
+          this.message = '';
+        }
+      }, eres => {
+        this.message = eres.error.message;
+        if (this.message) {
+          this.message = 'Strange, you bypassed frontend validation<br/>' + this.message;
+        } else {
+          this.message = 'Not expected flow E1';
+        }
       });
   }
 
   resetInput() {
-    this.passwdInfo = {
-      passwd: '',
-      salt: '',
-      generatedPasswd: '',
-      encryptedPasswd: ''
-    };
+    this.passwdInfo = PasswdInfo.getEmptyInstance();
   }
 
   ngOnInit() {

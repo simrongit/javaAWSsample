@@ -18,13 +18,24 @@ export class PasswdgenComponent implements OnInit {
   isCopiedG = false;
   isCopiedE = false;
   passwdInfo: PasswdInfo = PasswdInfo.getEmptyInstance(); // empty object must exist as passwd need to be assigned a value, if passwdInfo doesn't exist then passwd can't be assigned
-//  validationForm: FormGroup;
+  message: string;
+  //  validationForm: FormGroup;
   submitInput() {
-    this.httpService
-      .postT('/generatePasswd', this.passwdInfo)
-      .subscribe(result => {
-        this.passwdInfo = result;
-        console.log(this.passwdInfo);
+    this.httpService.postRetAny('/generatePasswd', this.passwdInfo, this).subscribe(
+      res => {
+        this.passwdInfo = res;
+        if (!this.passwdInfo.generatedPasswd || !this.passwdInfo.encryptedPasswd || !this.passwdInfo.salt) {
+          this.message = 'Backend issue G2';
+        } else {
+          this.message = '';
+        }
+      }, eres => {
+        this.message = eres.error.message;
+        if (this.message) {
+          this.message = 'Strange, you bypassed frontend validation\n' + this.message;
+        } else {
+          this.message = 'Not expected flow G1';
+        }
       });
   }
 
@@ -42,16 +53,16 @@ export class PasswdgenComponent implements OnInit {
   }
 
   ngOnInit() {
-//    this.validationForm = new FormGroup({
-//      'salt': new FormControl(this.passwdInfo.salt, [
-//        Validators.required,
-//        Validators.minLength(8),
-////        forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
-//      ])
-////      ,
-////      'alterEgo': new FormControl(this.passwdInfo.alterEgo),
-////      'power': new FormControl(this.hero.power, Validators.required)
-//    });
+    //    this.validationForm = new FormGroup({
+    //      'salt': new FormControl(this.passwdInfo.salt, [
+    //        Validators.required,
+    //        Validators.minLength(8),
+    ////        forbiddenNameValidator(/bob/i) // <-- Here's how you pass in the custom validator.
+    //      ])
+    ////      ,
+    ////      'alterEgo': new FormControl(this.passwdInfo.alterEgo),
+    ////      'power': new FormControl(this.hero.power, Validators.required)
+    //    });
   }
 
 }

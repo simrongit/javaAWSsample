@@ -22,9 +22,8 @@ export class PasswdSaveComponent implements OnInit, OnDestroy {
   }
 
   submitInput() {
-    this.httpService.postRetVoidStr('/savePasswd', this.passwdSaveInfo).subscribe(
+    this.httpService.postRetVoid('/savePasswd', this.passwdSaveInfo, this).subscribe(
       nullRes => {
-        console.log(nullRes);
         this.message = 'Saved';
       }, errorRes => {
         this.message = errorRes.error;
@@ -35,8 +34,10 @@ export class PasswdSaveComponent implements OnInit, OnDestroy {
           this.message = 'Passcode didn\'t matched. If you intend to create new user then select different user id';
         } else if (this.message.endsWith('DB failed')) {
           this.message = 'Transaction to database call failed';
+        } else if (this.message) {
+          this.message = 'Strange, you bypassed frontend validation<br/>' + this.message;
         } else {
-          this.message = 'Not expected flow 1';
+          this.message = 'Not expected flow S1';
         }
       });
   }
@@ -46,9 +47,8 @@ export class PasswdSaveComponent implements OnInit, OnDestroy {
   }
 
   createUser() {
-    this.httpService.postRetVoidStr('/newUser', this.passwdSaveInfo).subscribe(
+    this.httpService.postRetVoid('/newUser', this.passwdSaveInfo, this).subscribe(
       nullRes => {
-        console.log(nullRes);
         this.message = 'Saved';
       }, errorRes => {
         this.message = errorRes.error;
@@ -56,8 +56,10 @@ export class PasswdSaveComponent implements OnInit, OnDestroy {
           this.message = 'This user id already taken please provide new';
         } else if (this.message.endsWith('DB failed')) {
           this.message = 'Transaction to database call failed';
+        } else if (this.message) {
+          this.message = 'Strange, you bypassed frontend validation<br/>' + this.message;
         } else {
-          this.message = 'Not expected flow 2';
+          this.message = 'Not expected flow S1';
         }
       });
   }

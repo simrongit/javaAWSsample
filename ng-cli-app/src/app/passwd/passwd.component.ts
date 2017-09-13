@@ -46,10 +46,10 @@ export class PasswdSaveInfo {
 
   public static isPopulated(obj: PasswdSaveInfo): boolean { // I have to make it static because of getEmptyInstance()
     return obj !== undefined
-      && obj.userId !== undefined && obj.userId.length > 0
-      && obj.passCode !== undefined && obj.passCode.length > 0
-      && obj.refText !== undefined && obj.refText.length > 0
-      && obj.encPasswd !== undefined && obj.encPasswd.length > 0;
+      && obj.userId
+      && obj.passCode !== undefined && obj.passCode.match('^[0-9]{4}$')
+      && obj.refText
+      && obj.encPasswd !== undefined && obj.encPasswd.length === 64;
   }
 }
 
