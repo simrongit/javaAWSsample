@@ -41,6 +41,8 @@ export class PasswdRetrieveComponent implements OnInit {
           this.message = 'There is no stored password for this user';
         } else if (this.message === 'User not authenticated') {
           this.message = 'For this usere passcode didn\'t matched. Try again.';
+        } else if (this.message === 'Failed') {
+          this.message = 'Backend problem R3';
         } else if (this.message) {
           this.message = 'Strange, you bypassed frontend validation<br/>' + this.message;
         } else {

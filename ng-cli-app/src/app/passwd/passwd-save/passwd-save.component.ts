@@ -26,7 +26,7 @@ export class PasswdSaveComponent implements OnInit, OnDestroy {
       nullRes => {
         this.message = 'Saved';
       }, errorRes => {
-        this.message = errorRes.error;
+        this.message = errorRes.error.message;
         if (this.message === 'User not found') {
           this.message = 'This user doesn\'t exist. For creating new user uncheck the checkbox';
           console.log(this.message.endsWith('button'));
