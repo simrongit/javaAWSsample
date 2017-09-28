@@ -1,0 +1,19 @@
+<div class="container-fluid">
+	<div *ngIf="loggedInUser">
+		<h4>You are logged in as {{loggedInUser}}</h4>
+		<button class="btn btn-default" (click)="logout()">logout</button>
+	</div>
+	<div *ngIf="!loggedInUser">
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">User</span>
+			<input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1" [(ngModel)]="user">
+		</div>
+		<span class="help-block">Choose user name by which people can identify you. So that if required they can contact you.</span>
+		<div class="input-group">
+			<span class="input-group-addon" id="basic-addon1">Password</span>
+			<input type="password" class="form-control" placeholder="password" aria-describedby="basic-addon1" [(ngModel)]="passwd">
+		</div>
+		<span class="help-block">This password is just for purpose that other person can't login with your user. Its not stored so you can keep it simple.</span>
+		<button class="btn btn-default" (click)="login()">Login</button>
+	</div>
+</div>

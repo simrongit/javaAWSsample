@@ -7,6 +7,9 @@ import {PasswddecryptComponent} from './passwd/passwddecrypt/passwddecrypt.compo
 import {PasswdSaveComponent} from './passwd/passwd-save/passwd-save.component';
 import {PasswdRetrieveComponent} from './passwd/passwd-retrieve/passwd-retrieve.component';
 import {PasswdAboutComponent} from './passwd/passwd-about/passwd-about.component';
+import { GgdComponent } from './ggd/ggd.component';
+import {GgtComponent} from './ggd/ggt/ggt.component';
+import {GgsComponent} from './ggd/ggs/ggs.component';
 
 export const appRoutes: Routes = [
   {path: 'nufapp', component: NotUsedFeatureComponent},
@@ -21,6 +24,12 @@ export const appRoutes: Routes = [
       {path: 'pAbout', component: PasswdAboutComponent}
     ]
   },
-  {path: 'luhnapp', component: LuhnalgComponent}
+  {path: 'ggd', component: GgdComponent,
+    children: [
+      {path: 'ggt', component: GgtComponent},
+      {path: 'ggs', component: GgsComponent},
+    ]},
+  {path: 'luhnapp', component: LuhnalgComponent},
+  {path: 'vma', loadChildren: './vma/vma.module#VmaModule'}
 ];
 

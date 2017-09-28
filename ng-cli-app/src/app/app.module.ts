@@ -25,6 +25,11 @@ import {ShareDataService} from './services/share-data-service';
 // import {AppRoutingModule} from './app-routing.module';
 import {Router} from '@angular/router';
 import {appRoutes} from './approute';
+import { GgdComponent } from './ggd/ggd.component';
+import { GgtComponent } from './ggd/ggt/ggt.component';
+import { GgsComponent } from './ggd/ggs/ggs.component';
+
+// import {VmaModule} from './vma/vma.module';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import {appRoutes} from './approute';
     PasswdSaveComponent,
     PasswdRetrieveComponent,
     PasswdAboutComponent,
-    NotUsedFeatureComponent
+    NotUsedFeatureComponent,
+    GgdComponent,
+    GgtComponent,
+    GgsComponent
   ],
   imports: [
     BrowserModule,
@@ -45,6 +53,7 @@ import {appRoutes} from './approute';
     FormsModule,
 //    ReactiveFormsModule,
     ClipboardModule,
+//    VmaModule,
     //    PasswdModule,
     RouterModule.forRoot(
       appRoutes
