@@ -236,7 +236,7 @@ public class Password {
 	private boolean storePasswdInDB(PasswordSaveInfo passwdSaveInfo) {
 		String hashedUserId = performHashingWithHexResult(passwdSaveInfo.getUserId());
 		String hashedPassCode = performHashingWithHexResult(passwdSaveInfo.getPassCode());
-		DbInteraction.executeInsert(insertDataQuery, new String[] {hashedUserId, hashedPassCode, passwdSaveInfo.getRefText(), passwdSaveInfo.getEncPasswd()});
+		DbInteraction.executeUpdate(insertDataQuery, new String[] {hashedUserId, hashedPassCode, passwdSaveInfo.getRefText(), passwdSaveInfo.getEncPasswd()});
 		return true; // need to fix it
 	}
 

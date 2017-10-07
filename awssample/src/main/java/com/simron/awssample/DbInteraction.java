@@ -34,7 +34,7 @@ public class DbInteraction {
 				} catch (ClassNotFoundException e1) {
 					e1.printStackTrace();
 				}
-				con = DriverManager.getConnection("jdbc:mysql://dbinst.cpvigqtrv4l6.us-east-1.rds.amazonaws.com:3306/simdb", "root", "rootroot");
+				con = DriverManager.getConnection("jdbc:mysql://dbinst.crkzu6g3q0vq.us-east-2.rds.amazonaws.com:3306/simdb","root","rootroot");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -42,6 +42,11 @@ public class DbInteraction {
 		return con;
 	}
 	
+	/**
+	 * @param query
+	 * @param parameters
+	 * @return for result null check use length check because its never null
+	 */
 	public static String[][] executeQuery(String query, String[] parameters) {
 		String[][] ret = null;
 		try {
@@ -65,17 +70,35 @@ public class DbInteraction {
 		return ret;
 	}
 	
-	public static boolean executeInsert(String query, String[] parameters) {
+	/**
+	 * Test ??
+	 * 
+	 * usage : select 1 from <table> where ..
+	 * 
+	 * @param query
+	 * @param parameters
+	 * @return
+	 */
+	public static boolean isExist(String query, String[] parameters) {
+		String[][] ret = executeQuery(query,parameters);
+		if(ret.length != 0 && ret[0][0] != null) { // if no result then ret is not null however ret.length is 0, if return is empty then ret[0][0] will be empty string
+			return true;
+		}
+		return false;
+	}
+	
+	public static int executeUpdate(String query, String[] parameters) {
+		int res = -1;
 		try {
 			PreparedStatement ps = getConnection().prepareStatement(query);
 			for (int i = 0; i < parameters.length; i++) {
 				ps.setString(i + 1, parameters[i]);
 			}
-			ps.executeUpdate();
+			res = ps.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return true;
+		return res;
 	}
 	
 	private void exeucte() {
@@ -88,6 +111,7 @@ public class DbInteraction {
 		//length, confirm it? sha-256 will generate 256bit also generated key is 256 = 32bytes = 64hex string
 		query="select * from encrypted_passwd_storage where user_id = '?'";
 		query = "delete from encrypted_passwd_storage";
+		//try(Connection con = DriverManager.getConnection("jdbc:mysql://dbinst.cpvigqtrv4l6.us-east-1.rds.amazonaws.com:3306/simdb","root","rootroot"); ){
 		try(Connection con = DriverManager.getConnection("jdbc:mysql://dbinst.cpvigqtrv4l6.us-east-1.rds.amazonaws.com:3306/simdb","root","rootroot"); ){
 //			Statement st = con.createStatement();
 //			query="create database simdb";

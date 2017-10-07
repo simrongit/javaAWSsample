@@ -22,18 +22,48 @@ public class CardProbability {
 		System.out.println("Probability of getting one ace from dec of 48 with 8 cards "+(1 - probabilityOfOneAceInXpullsAndInYcardsWithZacesInDeck(16,48,4)));
 //		System.out.println("If I have 0 ace then probability that my team has one ace "+2*(1 - (float)44/48 * 43/47 * 42/46 * 41/45 * 40/44 * 39/43 * 38/42 * 37/41));
 		Set<Integer> cardsGivenFromDeck = new HashSet<>();
+		Integer[][] groupCards = new Integer[groupSize][];
 		for(int i=0; i<groupSize; i++) { // 6
+			groupCards[i] = new Integer[cards.length/groupSize]; // 8
 			for(int j=0; j<cards.length/groupSize; j++) { // 8 
 				Double d = Math.random() * cards.length;
 				Integer indexNumber = d.intValue();
 				if(cardsGivenFromDeck.add(indexNumber)) {
-					System.out.print(cards[indexNumber]+",");
+					groupCards[i][j] = indexNumber;
 				}else {
 					--j;
 				}
 			}
+		}
+		for(int i=0; i<groupSize; i++) { // 6
+			for(int j=0; j<cards.length/groupSize; j++) { // 8 
+				System.out.print(cards[groupCards[i][j]]+", ");
+			}
 			System.out.println();
 		}
+		Integer hukum = ((Double)(Math.random() * 4)).intValue();
+		System.out.println(hukum);
+		
+		//first hand
+		for(int i=0; i<1; i++) { // 6
+			Integer[] aGroup = groupCards[i];
+			Integer ace = findAce(aGroup, hukum, cards.length/groupSize);
+			if(ace != -1) {
+				System.out.println("Ace "+cards[ace]);
+			}else {
+				
+			}
+		}
+	}
+
+	private Integer findAce(Integer[] aGroup, Integer hukum, Integer length) {
+		for(int j=0; j<length; j++) { // 8 
+			if(aGroup[j]%12 == 0 && aGroup[j]/12 != hukum) {
+				System.out.println("Found ACE which is no hukum "+aGroup[j]+ " hukum = "+hukum);
+				return aGroup[j];
+			}
+		}
+		return -1;
 	}
 	
 	private float probabilityOfOneAceInXpullsAndInYcardsWithZacesInDeck(int xpull, int ycards, int zace) {

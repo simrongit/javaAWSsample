@@ -6,13 +6,13 @@ import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.simron.utils.CustomException;
 import com.simron.utils.LoggerFactory;
+import com.simron.utils.MandatoryInputs;
 
 @RestController
 public class PasswordCtrl {
@@ -32,30 +32,18 @@ public class PasswordCtrl {
 
     @PostMapping("/generatePasswd")
     public PasswordInfo genPasswd(@RequestBody PasswordInfo passwdInfo) {
-    	mandatoryString(passwdInfo.getPasswd(),"Vault Password", 0);
-    	mandatoryDitigs(passwdInfo.getSalt(), "Salt", 8);
+    	MandatoryInputs.string(passwdInfo.getPasswd(),"Vault Password");
+    	MandatoryInputs.ditigs(passwdInfo.getSalt(), "Salt", 8);
     	logger.info("Password Generation Called");
     	passwordTool.generatePassword(passwdInfo);
         return passwdInfo;
     }
 
-	private void mandatoryString(String str, String strName, int length) {
-		if(StringUtils.isEmpty(str) || (length != 0 && str.length() != length)) {
-    		throw new CustomException("Mandatory " + strName + " string missing" + (length!=0?" of length "+length:""));
-    	}
-	}
-	
-	private void mandatoryDitigs(String digits, String strName, int length) {
-		if(!StringUtils.isEmpty(digits) && (digits.length() != length || digits.matches("^[^0-9]*$"))) {
-    		throw new CustomException("Mandatory " + strName + " digits missing" + (length!=0?" of length "+length:""));
-    	}
-	}
-    
     @PostMapping("/decryptPasswd")
     public PasswordInfo decPasswd(@RequestBody PasswordInfo passwdInfo) {
-    	mandatoryString(passwdInfo.getPasswd(), "Vault Password", 0);
-    	mandatoryDitigs(passwdInfo.getSalt(), "Salt", 8);
-    	mandatoryString(passwdInfo.getEncryptedPasswd(), "Encrypted Password", 64);
+    	MandatoryInputs.string(passwdInfo.getPasswd(), "Vault Password");
+    	MandatoryInputs.ditigs(passwdInfo.getSalt(), "Salt", 8);
+    	MandatoryInputs.string(passwdInfo.getEncryptedPasswd(), "Encrypted Password", 64);
     	passwordTool.decryptPassword(passwdInfo);
         return passwdInfo;
     }
@@ -76,8 +64,8 @@ public class PasswordCtrl {
     
     @PostMapping("/retPasswd")
     public Map<String, String> retrievePasswd(@RequestBody PasswordSaveInfo passwdSaveInfo) throws CustomException{
-    	mandatoryString(passwdSaveInfo.getUserId(), "User Id", 0);
-    	mandatoryDitigs(passwdSaveInfo.getPassCode(), "Pass Code", 4);
+    	MandatoryInputs.string(passwdSaveInfo.getUserId(), "User Id");
+    	MandatoryInputs.ditigs(passwdSaveInfo.getPassCode(), "Password", 4);
     	String status = passwordTool.validateUser(passwdSaveInfo.getUserId(), passwdSaveInfo.getPassCode());
     	if(!status.equals("Success")) {
     		throw new CustomException(status);
@@ -106,10 +94,10 @@ public class PasswordCtrl {
      */
     @PostMapping("/savePasswd")
     public void savePasswd(@RequestBody PasswordSaveInfo passwdSaveInfo) throws CustomException{
-    	mandatoryString(passwdSaveInfo.getUserId(), "User Id", 0);
-    	mandatoryDitigs(passwdSaveInfo.getPassCode(), "Pass Code", 4);
-    	mandatoryString(passwdSaveInfo.getRefText(), "Reference Text", 0);
-    	mandatoryString(passwdSaveInfo.getEncPasswd(), "Encrypted Password", 64);
+    	MandatoryInputs.string(passwdSaveInfo.getUserId(), "User Id");
+    	MandatoryInputs.ditigs(passwdSaveInfo.getPassCode(), "Pass Code", 4);
+    	MandatoryInputs.string(passwdSaveInfo.getRefText(), "Reference Text");
+    	MandatoryInputs.string(passwdSaveInfo.getEncPasswd(), "Encrypted Password", 64);
     	
     	String status = passwordTool.validateAndsavePassword(passwdSaveInfo, false);
     	if(!status.equals("Success")) {
