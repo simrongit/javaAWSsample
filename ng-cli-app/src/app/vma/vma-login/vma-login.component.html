@@ -1,7 +1,8 @@
 <div class="container-fluid">
 	<div *ngIf="loggedInUser">
-		<h4>You are logged in as {{loggedInUser}}</h4>
+		<h4>You are logged in as {{user}}</h4>
 		<button class="btn btn-default" (click)="logout()">logout</button>
+		<br/>
 	</div>
 	<div *ngIf="!loggedInUser">
 		<div class="input-group">
@@ -15,5 +16,7 @@
 		</div>
 		<span class="help-block">This password is just for purpose that other person can't login with your user. Its not stored so you can keep it simple.</span>
 		<button class="btn btn-default" (click)="login()">Login</button>
+		<br/>
+		<span class="help-block">{{message}}</span>
 	</div>
 </div>

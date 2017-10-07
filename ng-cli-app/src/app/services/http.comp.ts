@@ -15,6 +15,12 @@ export class HttpService {
   public getN(url: string): Observable<any> {
     return this.httpClient.get(url);
   }
+
+  public getAny(url: string, caller: any): Observable<any> {
+    caller.message = 'API is bieng called ...';
+    return this.httpClient.get(url);
+  }
+
   public getS(url: string): Observable<any> {
     return this.httpClient.get(url, {responseType: 'text'});
   }
@@ -74,30 +80,43 @@ export class HttpService {
 
 
 
-  public postRetVoid(url: string, objToPost: object, thisObj: any): Observable<any> {
-    thisObj.message = 'API is bieng called ...';
+  public postRetVoid(url: string, objToPost: object, caller: any): Observable<any> {
+    caller.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost); // for error handling use errorResponse.error.message
   }
 
-  public postRetVoidStr(url: string, objToPost: object): Observable<any> {
+  public postRetVoidStr(url: string, objToPost: object, caller: any): Observable<any> {
+    caller.message = 'API is beign called ...';
     return this.httpClient.post(url, objToPost, {responseType: 'text'}); // return media type should be text you can access  error as errorResponse.error
   }
 
-  public postRetAny(url: string, objToPost: object, thisObj: any): Observable<any> { // this is passed just to set message
-    thisObj.message = 'API is bieng called ...';
+  public postRetAny(url: string, objToPost: object, caller: any): Observable<any> { // this is passed just to set message
+    caller.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost);
   }
 
-  public postRetObj(url: string, objToPost: object, thisObj: any): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
-    thisObj.message = 'API is bieng called ...';
+  public postRetObj(url: string, objToPost: object, caller: any): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
+    caller.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost);
   }
 
   public postRetBool(url: string, objToPost: object): Observable<boolean> {
     return this.httpClient.post(url, objToPost);
   }
+  public postSRetBool(url: string, str: string, caller: any): Observable<boolean> {
+    caller.message = 'API is bieng called ...';
+    return this.httpClient.post(url, str);
+  }
 
-  public postRetStr(url: string, objToPost: object): Observable<string> { // ? if response type is not text and string is returned then what object contains
+  public postRetStr(url: string, objToPost: object, caller: any): Observable<string> { // ? if response type is not text and string is returned then what object contains .. answer null
+    caller.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost, {responseType: 'text'});
   }
+
+  public postSRetStr(url: string, str: string, caller: any): Observable<string> {
+    caller.message = 'API is bieng called ...';
+    return this.httpClient.post(url, str, {responseType: 'text'});
+  }
+
+
 }

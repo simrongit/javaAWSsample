@@ -1,4 +1,5 @@
 <div class="container-fluid">
+	<button *ngIf="loggedInUser" class="btn btn-default pull-right" (click)="refresh()">Refresh VM list</button>
 	<button *ngIf="loggedInUser" class="btn btn-default pull-right" (click)="logout()">logout</button>
 	<a *ngIf="!loggedInUser" class="btn btn-default pull-right" href="/#/vma/vmal">login please</a>
 	<hr/>
@@ -12,11 +13,11 @@
 			</ul>
 		</div>
 		<div class="col-sm-10	">
-			<span class="help-block" *ngIf="!activeTab">Please select a option from menu</span>
-			<app-vma-aloc-lockedbyou *ngIf="activeTab === 'lbu'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" (cVmReleased)="releaseVM($event)"></app-vma-aloc-lockedbyou>
-			<app-vma-aloc-locked *ngIf="activeTab === 'lock'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser"></app-vma-aloc-locked>
+			<span class="help-block" *ngIf="!activeTab && loggedInUser">Please select a option from menu</span>
+			<app-vma-aloc-lockedbyou *ngIf="activeTab === 'lbu'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" [cUser]="userId" (cVmReleased)="releaseVM($event)"></app-vma-aloc-lockedbyou>
+			<app-vma-aloc-locked *ngIf="activeTab === 'lock'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" [cUser]="userId"></app-vma-aloc-locked>
 			<app-vma-aloc-available *ngIf="activeTab === 'avail'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" (cVmOccupied)="lockVM($event)"></app-vma-aloc-available>
-			<app-vma-aloc-admin *ngIf="activeTab === 'admin'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" (cVmReleased)="lockVM($event)" (cVmAdd)="addVM($event)" (cVmRemove)="removeVM($event)"></app-vma-aloc-admin>
+			<app-vma-aloc-admin *ngIf="activeTab === 'admin'" [cVmList]="vmList" [cLoggedInUser]="loggedInUser" [cUser]="userId" (cVmReleased)="releaseVM($event)" (cVmAdd)="addVM($event)" (cVmRemove)="removeVM($event)"></app-vma-aloc-admin>
 		</div>
 	</div>
 	{{message}}

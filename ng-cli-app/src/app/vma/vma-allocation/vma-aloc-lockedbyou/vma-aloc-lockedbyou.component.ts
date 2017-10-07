@@ -12,6 +12,7 @@ export class VmaAlocLockedbyouComponent implements OnInit {
 
   @Input() cVmList: VM[];
   @Input() cLoggedInUser: string;
+  @Input() cUser: string;
   @Output() cVmReleased = new EventEmitter<string>();
 
   ngOnInit() {

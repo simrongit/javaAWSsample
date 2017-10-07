@@ -10,8 +10,10 @@ import {PasswdAboutComponent} from './passwd/passwd-about/passwd-about.component
 import { GgdComponent } from './ggd/ggd.component';
 import {GgtComponent} from './ggd/ggt/ggt.component';
 import {GgsComponent} from './ggd/ggs/ggs.component';
+import { HomeAboutComponent } from './home-about/home-about.component';
 
 export const appRoutes: Routes = [
+  {path: '', component: HomeAboutComponent},
   {path: 'nufapp', component: NotUsedFeatureComponent},
   {
     path: 'passapp', component: PasswdComponent,

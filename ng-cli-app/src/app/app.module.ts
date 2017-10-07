@@ -28,6 +28,7 @@ import {appRoutes} from './approute';
 import { GgdComponent } from './ggd/ggd.component';
 import { GgtComponent } from './ggd/ggt/ggt.component';
 import { GgsComponent } from './ggd/ggs/ggs.component';
+import { HomeAboutComponent } from './home-about/home-about.component';
 
 // import {VmaModule} from './vma/vma.module';
 
@@ -44,7 +45,8 @@ import { GgsComponent } from './ggd/ggs/ggs.component';
     NotUsedFeatureComponent,
     GgdComponent,
     GgtComponent,
-    GgsComponent
+    GgsComponent,
+    HomeAboutComponent
   ],
   imports: [
     BrowserModule,
