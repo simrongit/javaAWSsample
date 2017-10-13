@@ -46,7 +46,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align: center\">\n\t<h1>Welcome to {{title}}!</h1>\n</div>\n\n<hr />\n\n<div class=\"container-fluid\">\n\t<div class=\"col-sm-2\" style=\"border-right:1px solid #eee;height:700px\">\n\t\t<ul class=\"nav nav-pills nav-stacked\">\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/passapp\">Password App</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/luhnapp\">Luhn Algorithim for CC last bit check</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/ggd\">Guru Granth Darpan</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/vma\">Virtual Machine(Resource) Allocation</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/nufapp\">Not used feature set</a></li>\n\t\t</ul>\n\t</div>\n\t<div class=\"col-sm-10\">\n\t\t<div class=\"panel panel-primary\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n<!-- <span class=\"label label-default\">Default</span>\n<span class=\"label label-primary\">Primary</span>\n -->"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align: center\">\n\t<h1>Welcome to {{title}}!</h1>\n</div>\n\n<hr />\n\n<div class=\"container-fluid\">\n\t<div class=\"col-sm-2\" style=\"border-right:1px solid #eee;height:700px\">\n\t\t<ul class=\"nav nav-pills nav-stacked\">\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/passapp\">Password App</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/luhnapp\">Luhn Algorithim for CC last bit check</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/ggd\">Guru Granth Darpan</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/vma\">Virtual Machine(Resource) Allocation</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/nufapp\">Not used feature set</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/posttest\">Postman</a></li>\n\t\t</ul>\n\t</div>\n\t<div class=\"col-sm-10\">\n\t\t<div class=\"panel panel-primary\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n<!-- <span class=\"label label-default\">Default</span>\n<span class=\"label label-primary\">Primary</span>\n -->"
 
 /***/ }),
 
@@ -138,6 +138,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ggd_ggt_ggt_component__ = __webpack_require__("../../../../../src/app/ggd/ggt/ggt.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ggd_ggs_ggs_component__ = __webpack_require__("../../../../../src/app/ggd/ggs/ggs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__ = __webpack_require__("../../../../../src/app/home-about/home-about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__post_sim_post_sim_component__ = __webpack_require__("../../../../../src/app/post-sim/post-sim.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -176,6 +177,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 // import {VmaModule} from './vma/vma.module';
 var AppModule = (function () {
     // Diagnostic only: inspect router configuration
@@ -199,7 +201,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__ggd_ggd_component__["a" /* GgdComponent */],
             __WEBPACK_IMPORTED_MODULE_21__ggd_ggt_ggt_component__["a" /* GgtComponent */],
             __WEBPACK_IMPORTED_MODULE_22__ggd_ggs_ggs_component__["a" /* GgsComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__["a" /* HomeAboutComponent */]
+            __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__["a" /* HomeAboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__post_sim_post_sim_component__["a" /* PostSimComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -243,6 +246,8 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ggd_ggt_ggt_component__ = __webpack_require__("../../../../../src/app/ggd/ggt/ggt.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ggd_ggs_ggs_component__ = __webpack_require__("../../../../../src/app/ggd/ggs/ggs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_about_home_about_component__ = __webpack_require__("../../../../../src/app/home-about/home-about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__post_sim_post_sim_component__ = __webpack_require__("../../../../../src/app/post-sim/post-sim.component.ts");
+
 
 
 
@@ -275,6 +280,7 @@ var appRoutes = [
             { path: 'ggs', component: __WEBPACK_IMPORTED_MODULE_10__ggd_ggs_ggs_component__["a" /* GgsComponent */] },
         ] },
     { path: 'luhnapp', component: __WEBPACK_IMPORTED_MODULE_1__luhnalg_luhnalg_component__["a" /* LuhnalgComponent */] },
+    { path: 'posttest', component: __WEBPACK_IMPORTED_MODULE_12__post_sim_post_sim_component__["a" /* PostSimComponent */] },
     { path: 'vma', loadChildren: './vma/vma.module#VmaModule' }
 ];
 //# sourceMappingURL=approute.js.map
@@ -507,7 +513,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GgtComponent = (function () {
     function GgtComponent(httpService) {
         this.httpService = httpService;
-        this.message = this.ggdata[100];
         this.count = 1; // internal counter for shabad count
         this.iIndex = 1; // user input for shabad count
         this.fileFetchIndex = 0;
@@ -1524,6 +1529,81 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/post-sim/post-sim.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/post-sim/post-sim.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n\t\t<div class=\"form-group\">\n\t\t\t<label>Url</label> <input type=\"text\" class=\"form-control\" placeholder=\"http://abc:8080\" [(ngModel)]=\"aUrl\">\n\t\t</div>\n\t\t<div class=\"form-group\">\n\t\t\t<label>String</label> <input type=\"text\" class=\"form-control\" placeholder=\"abc\" [(ngModel)]=\"aText\">\n\t\t</div>\n\t\t<div class=\"form-group\">\n\t\t\t<button class=\"btn btn-primary\" type=\"button\" [disabled]=\"!aUrl || !aText\" (click)=\"submitInput()\">Post</button>\n\t\t</div>\n\t\t<div>{{aRes}}</div>\n\t\t<div>{{aErrRes}}</div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/post-sim/post-sim.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostSimComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PostSimComponent = (function () {
+    function PostSimComponent(httpService) {
+        this.httpService = httpService;
+    }
+    PostSimComponent.prototype.ngOnInit = function () {
+    };
+    PostSimComponent.prototype.submitInput = function () {
+        var _this = this;
+        this.httpService.postRetObjStr(this.aUrl, this.aText, this).subscribe(function (res) {
+            _this.aRes = JSON.stringify(res);
+            _this.message = '';
+            _this.aErrRes = '';
+        }, function (errorRes) {
+            _this.aErrRes = errorRes.message;
+        });
+    };
+    return PostSimComponent;
+}());
+PostSimComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-post-sim',
+        template: __webpack_require__("../../../../../src/app/post-sim/post-sim.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/post-sim/post-sim.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object])
+], PostSimComponent);
+
+var _a;
+//# sourceMappingURL=post-sim.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/services/http.comp.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1617,6 +1697,10 @@ var HttpService = (function () {
     HttpService.prototype.postRetObj = function (url, objToPost, caller) {
         caller.message = 'API is bieng called ...';
         return this.httpClient.post(url, objToPost);
+    };
+    HttpService.prototype.postRetObjStr = function (url, str, caller) {
+        caller.message = 'API is bieng called ...';
+        return this.httpClient.post(url, str);
     };
     HttpService.prototype.postRetBool = function (url, objToPost) {
         return this.httpClient.post(url, objToPost);
