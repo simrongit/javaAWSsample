@@ -44,7 +44,6 @@ public class VMAllocationTest {
 		vmAllocation.logout(adminUserKey);
 	}
 	
-	@Test
 	public void loginLogout() {
 		vmAllocation.logout(testUserKey);
 		vmAllocation.logout(adminUserKey);
@@ -77,7 +76,6 @@ public class VMAllocationTest {
 		assertEquals("Not logged in", result);
 	}
 	
-	@Test
 	public void addVM() {
 
 		VMInfo vmInfo = new VMInfo("","");
@@ -104,7 +102,6 @@ public class VMAllocationTest {
 
 	}
 
-	@Test
 	public void removeVM() {
 		VMInfo vmInfo = new VMInfo("","");
 		String result = vmAllocation.removeVM(vmInfo);
@@ -126,7 +123,6 @@ public class VMAllocationTest {
 		assertEquals("VM not exist", result);
 	}
 	
-	@Test
 	public void allocateVM() {
 		VMInfo vmInfo = new VMInfo("","");
 		String result = vmAllocation.allocateVM(vmInfo);
@@ -147,27 +143,35 @@ public class VMAllocationTest {
 		assertEquals("Already allocated", result);
 	}
 
-	@Test
 	public void releaseVM() {
-		VMInfo vmInfo = new VMInfo("","");
-		String result = vmAllocation.releaseVM(vmInfo);
+		VMInfo testVmInfo = new VMInfo("","");
+		String result = vmAllocation.releaseVM(testVmInfo);
 		assertEquals("Not logged in", result);
 
 		testUserKey = vmAllocation.login(testUser);
-		vmInfo = new VMInfo(testUserKey,"test01v");
-		result = vmAllocation.releaseVM(vmInfo);
+		testVmInfo = new VMInfo(testUserKey,"test01v");
+		result = vmAllocation.releaseVM(testVmInfo);
 		assertEquals("VM not exist", result);
 		
 		VMInfo adminVmInfo = new VMInfo(adminUserKey,"test01v");
 		vmAllocation.addVM(adminVmInfo);
-		vmAllocation.allocateVM(vmInfo);
-		result = vmAllocation.releaseVM(adminVmInfo);
+		vmAllocation.allocateVM(testVmInfo);
+		VMAUser anotherUser = new VMAUser();
+		anotherUser.setUserId("another");
+		anotherUser.setPasswd("test");
+		String anotherUserKey = vmAllocation.login(anotherUser);
+		VMInfo anotherUserVmInfo = new VMInfo(anotherUserKey, "test01v");
+		result = vmAllocation.releaseVM(anotherUserVmInfo);
 		assertEquals("Locked by other", result);
 		
-		result = vmAllocation.releaseVM(vmInfo);
+		result = vmAllocation.releaseVM(testVmInfo);
+		assertEquals("Success", result);
+		vmAllocation.allocateVM(testVmInfo);
+		
+		result = vmAllocation.releaseVM(adminVmInfo);
 		assertEquals("Success", result);
 		
-		result = vmAllocation.releaseVM(vmInfo);
+		result = vmAllocation.releaseVM(testVmInfo);
 		assertEquals("Already released", result);
 	}
 	

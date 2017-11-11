@@ -83,7 +83,7 @@ public class VMAllocatoinCtrl {
     @PostMapping("/remVM")
     public String remVM(@RequestBody VMInfo vmInfo) {
     	MandatoryInputs.stringStr(vmInfo.getUserKey(), "User Key", 64);
-    	MandatoryInputs.string(vmInfo.getVmName(), "VM Name");
+    	MandatoryInputs.stringStr(vmInfo.getVmName(), "VM Name");
     	String returnStr = vmAllocationTool.removeVM(vmInfo);
     	if(!returnStr.equals("Success")) {
     		throw new CustomExceptionStr(returnStr);

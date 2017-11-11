@@ -46,7 +46,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align: center\">\n\t<h1>Welcome to {{title}}!</h1>\n</div>\n\n<hr />\n\n<div class=\"container-fluid\">\n\t<div class=\"col-sm-2\" style=\"border-right:1px solid #eee;height:700px\">\n\t\t<ul class=\"nav nav-pills nav-stacked\">\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/passapp\">Password App</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/luhnapp\">Luhn Algorithim for CC last bit check</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/ggd\">Guru Granth Darpan</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/vma\">Virtual Machine(Resource) Allocation</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/nufapp\">Not used feature set</a></li>\n\t\t</ul>\n\t</div>\n\t<div class=\"col-sm-10\">\n\t\t<div class=\"panel panel-primary\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n<!-- <span class=\"label label-default\">Default</span>\n<span class=\"label label-primary\">Primary</span>\n -->"
+module.exports = "<!--The content below is only a placeholder and can be replaced.-->\n<div style=\"text-align: center\">\n\t<h1>Welcome to {{title}}!</h1>\n</div>\n\n<hr />\n\n<div class=\"container-fluid\">\n\t<div class=\"col-sm-2\" style=\"border-right:1px solid #eee;height:700px\">\n\t\t<ul class=\"nav nav-pills nav-stacked\">\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/passapp\">Password App</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/luhnapp\">Luhn Algorithim for CC last bit check</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/ggd\">Guru Granth Darpan</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/vma\">Virtual Machine(Resource) Allocation</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/nufapp\">Not used feature set</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/posttest\">Postman</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/oa\">OAuth2</a></li>\n\t\t\t<li routerLinkActive=\"active\"><a routerLink=\"/movie\">Movies</a></li>\n\t\t</ul>\n\t</div>\n\t<div class=\"col-sm-10\">\n\t\t<div class=\"panel panel-primary\">\n\t\t\t<router-outlet></router-outlet>\n\t\t</div>\n\t</div>\n</div>\n<!-- <span class=\"label label-default\">Default</span>\n<span class=\"label label-primary\">Primary</span>\n -->"
 
 /***/ }),
 
@@ -138,6 +138,12 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ggd_ggt_ggt_component__ = __webpack_require__("../../../../../src/app/ggd/ggt/ggt.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ggd_ggs_ggs_component__ = __webpack_require__("../../../../../src/app/ggd/ggs/ggs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__ = __webpack_require__("../../../../../src/app/home-about/home-about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__post_sim_post_sim_component__ = __webpack_require__("../../../../../src/app/post-sim/post-sim.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__o_auth_o_auth_component__ = __webpack_require__("../../../../../src/app/o-auth/o-auth.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__movie_movie_component__ = __webpack_require__("../../../../../src/app/movie/movie.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__movie_movie_info_movie_info_component__ = __webpack_require__("../../../../../src/app/movie/movie-info/movie-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__movie_movie_list_movie_list_component__ = __webpack_require__("../../../../../src/app/movie/movie-list/movie-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__movie_movie_parsed_movie_parsed_component__ = __webpack_require__("../../../../../src/app/movie/movie-parsed/movie-parsed.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -176,6 +182,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
+
+
+
+
 // import {VmaModule} from './vma/vma.module';
 var AppModule = (function () {
     // Diagnostic only: inspect router configuration
@@ -199,7 +211,13 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_20__ggd_ggd_component__["a" /* GgdComponent */],
             __WEBPACK_IMPORTED_MODULE_21__ggd_ggt_ggt_component__["a" /* GgtComponent */],
             __WEBPACK_IMPORTED_MODULE_22__ggd_ggs_ggs_component__["a" /* GgsComponent */],
-            __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__["a" /* HomeAboutComponent */]
+            __WEBPACK_IMPORTED_MODULE_23__home_about_home_about_component__["a" /* HomeAboutComponent */],
+            __WEBPACK_IMPORTED_MODULE_24__post_sim_post_sim_component__["a" /* PostSimComponent */],
+            __WEBPACK_IMPORTED_MODULE_25__o_auth_o_auth_component__["a" /* OAuthComponent */],
+            __WEBPACK_IMPORTED_MODULE_26__movie_movie_component__["a" /* MovieComponent */],
+            __WEBPACK_IMPORTED_MODULE_27__movie_movie_info_movie_info_component__["a" /* MovieInfoComponent */],
+            __WEBPACK_IMPORTED_MODULE_28__movie_movie_list_movie_list_component__["a" /* MovieListComponent */],
+            __WEBPACK_IMPORTED_MODULE_29__movie_movie_parsed_movie_parsed_component__["a" /* MovieParsedComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -210,15 +228,15 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_17_ngx_clipboard__["a" /* ClipboardModule */],
             //    VmaModule,
             //    PasswdModule,
-            __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_19__approute__["a" /* appRoutes */])
+            __WEBPACK_IMPORTED_MODULE_4__angular_router__["c" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_19__approute__["a" /* appRoutes */])
         ],
         providers: [__WEBPACK_IMPORTED_MODULE_8__services_http_comp__["a" /* HttpService */],
             __WEBPACK_IMPORTED_MODULE_18__services_share_data_service__["a" /* ShareDataService */],
             __WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */],
-            { provide: __WEBPACK_IMPORTED_MODULE_6__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_6__angular_common__["d" /* HashLocationStrategy */] }],
+            { provide: __WEBPACK_IMPORTED_MODULE_6__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_6__angular_common__["h" /* PathLocationStrategy */] }],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _a || Object])
 ], AppModule);
 
 var _a;
@@ -243,6 +261,18 @@ var _a;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__ggd_ggt_ggt_component__ = __webpack_require__("../../../../../src/app/ggd/ggt/ggt.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ggd_ggs_ggs_component__ = __webpack_require__("../../../../../src/app/ggd/ggs/ggs.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__home_about_home_about_component__ = __webpack_require__("../../../../../src/app/home-about/home-about.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__post_sim_post_sim_component__ = __webpack_require__("../../../../../src/app/post-sim/post-sim.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__o_auth_o_auth_component__ = __webpack_require__("../../../../../src/app/o-auth/o-auth.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__movie_movie_component__ = __webpack_require__("../../../../../src/app/movie/movie.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__movie_movie_info_movie_info_component__ = __webpack_require__("../../../../../src/app/movie/movie-info/movie-info.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__movie_movie_list_movie_list_component__ = __webpack_require__("../../../../../src/app/movie/movie-list/movie-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__movie_movie_parsed_movie_parsed_component__ = __webpack_require__("../../../../../src/app/movie/movie-parsed/movie-parsed.component.ts");
+
+
+
+
+
+
 
 
 
@@ -269,13 +299,26 @@ var appRoutes = [
             { path: 'pAbout', component: __WEBPACK_IMPORTED_MODULE_7__passwd_passwd_about_passwd_about_component__["a" /* PasswdAboutComponent */] }
         ]
     },
-    { path: 'ggd', component: __WEBPACK_IMPORTED_MODULE_8__ggd_ggd_component__["a" /* GgdComponent */],
+    {
+        path: 'ggd', component: __WEBPACK_IMPORTED_MODULE_8__ggd_ggd_component__["a" /* GgdComponent */],
         children: [
             { path: 'ggt', component: __WEBPACK_IMPORTED_MODULE_9__ggd_ggt_ggt_component__["a" /* GgtComponent */] },
             { path: 'ggs', component: __WEBPACK_IMPORTED_MODULE_10__ggd_ggs_ggs_component__["a" /* GgsComponent */] },
-        ] },
+        ]
+    },
     { path: 'luhnapp', component: __WEBPACK_IMPORTED_MODULE_1__luhnalg_luhnalg_component__["a" /* LuhnalgComponent */] },
-    { path: 'vma', loadChildren: './vma/vma.module#VmaModule' }
+    { path: 'posttest', component: __WEBPACK_IMPORTED_MODULE_12__post_sim_post_sim_component__["a" /* PostSimComponent */] },
+    { path: 'vma', loadChildren: './vma/vma.module#VmaModule' },
+    { path: 'oa', component: __WEBPACK_IMPORTED_MODULE_13__o_auth_o_auth_component__["a" /* OAuthComponent */] },
+    { path: 'oauth/gitcallback', component: __WEBPACK_IMPORTED_MODULE_13__o_auth_o_auth_component__["a" /* OAuthComponent */] },
+    {
+        path: 'movie', component: __WEBPACK_IMPORTED_MODULE_14__movie_movie_component__["a" /* MovieComponent */],
+        children: [
+            { path: 'mi', component: __WEBPACK_IMPORTED_MODULE_15__movie_movie_info_movie_info_component__["a" /* MovieInfoComponent */] },
+            { path: 'ml', component: __WEBPACK_IMPORTED_MODULE_16__movie_movie_list_movie_list_component__["a" /* MovieListComponent */] },
+            { path: 'mp', component: __WEBPACK_IMPORTED_MODULE_17__movie_movie_parsed_movie_parsed_component__["a" /* MovieParsedComponent */] },
+        ]
+    }
 ];
 //# sourceMappingURL=approute.js.map
 
@@ -765,6 +808,332 @@ LuhnalgComponent = __decorate([
 
 /***/ }),
 
+/***/ "../../../../../src/app/movie/movie-info/movie-info.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-info/movie-info.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<br/>\r\n<div class=\"panel panel-default\">\r\n  <div class=\"panel-heading\">Moves to watch</div>\r\n  <div class=\"panel-body\">\r\n    <p>Everything here</p>\r\n  </div>\r\n  <!-- Table -->\r\n  <table class=\"table\">\r\n  \t<tr>\r\n  \t\t<th>Move Name</th>\r\n  \t\t<th>Trailer</th>\r\n  \t\t<th>Download link</th>\r\n  \t\t<th>Subtitles</th>\r\n  \t\t<th>Click to add filter</th>\r\n  \t</tr>\r\n  \t<tr *ngFor=\"let movieInfo of movieInfos\">\r\n  \t\t<td>{{movieInfo.filter}}</td>\r\n  \t\t<td><button class=\"btn btn-default\" (click)=\"updateUrl(movieInfo.youtube)\">Show Trailer</button></td>\r\n  \t\t<td><button class=\"btn btn-default\" ngxClipboard [cbContent]=\"movieInfo.magnet\">Copy Download Link</button></td>\r\n  \t\t<!-- <td><button class=\"btn btn-default\" [class.btn-success]=\"isCopiedM\" ngxClipboard [cbContent]=\"movieInfo.magnet\"\t(cbOnSuccess)=\"isCopiedM = true\">Copy Download Link</button></td> -->\r\n  \t\t<td><a href=\"{{movieInfo.subscene}}\">Download SubTitle</a></td>\r\n  \t\t<td><button class=\"btn btn-default\" (click)=\"addFilter(movieInfo.filter)\">Add to Filter</button></td>\r\n  \t</tr>\r\n  </table>\r\n  \r\n  <!-- 16:9 aspect ratio -->\r\n\t<div class=\"embed-responsive embed-responsive-16by9\">\r\n\t  <iframe class=\"embed-responsive-item\" [src]=\"trailerUrl\"></iframe>\r\n\t</div>\r\n\r\n</div>\r\n\r\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-info/movie-info.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieInfoComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__ = __webpack_require__("../../../platform-browser/@angular/platform-browser.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var MovieInfoComponent = (function () {
+    function MovieInfoComponent(httpService, sanitizer) {
+        this.httpService = httpService;
+        this.sanitizer = sanitizer;
+        this.isCopiedM = false;
+    }
+    MovieInfoComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //    this.httpService.getAny('assets/json/movies/movieInfos.json', this).subscribe(
+        this.httpService.getAny('/mov/movieg', this).subscribe(function (data) {
+            _this.movieInfos = data;
+        }, function (error) { return console.log(error); });
+        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(''); // to avoid error
+    };
+    //  ngOnInit() {
+    //    this.movieInfo = MovieInfo.getEmptyInstance();
+    //    this.movieInfo.movie = 'The+Nice+Guys+2016+1080p+BluRay+x264+DTSJYK';
+    //    this.movieInfo.magnet = 'magnet:?xt=urn:btih:03d8bd2ebc1e98938ac723733361f3e6237f8bf3&dn=The+Nice+Guys+2016+1080p+BluRay+x264+DTS-JYK&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969&tr=udp%3A%2F%2Fzer0day.ch%3A1337&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969';
+    //    this.movieInfo.filter = '';
+    //    this.movieInfo.youtube = 'https://www.youtube.com/watch?v=WVd-EuoEf3U';
+    //    this.movieInfo.subscene = 'https://subscene.com/subtitle/download?mac=xDf75kLZe73KxoZlXPu6Pv_BOAf_F91JK1-U76wj4q4B7_M90iSSJJTO1hszxAm2LP84lqJvNqdVbPEZi8exeBfgWhaWtyZmOVjh9n7xLvK5JcNwc1X4Wum9D2hlrNg50';
+    //  }
+    MovieInfoComponent.prototype.updateUrl = function (url) {
+        this.trailerUrl = this.sanitizer.bypassSecurityTrustResourceUrl(url.replace('watch?v=', 'embed/'));
+    };
+    MovieInfoComponent.prototype.addFilter = function (movie) {
+        var _this = this;
+        this.httpService.postSRetStr('/mov/addMovie', movie, this).subscribe(function (data) {
+            _this.message = data;
+            if (data === 'Success') {
+                _this.message = 'API call was success';
+                var newList = _this.movieInfos.filter(function (obj) {
+                    return obj.filter !== movie;
+                });
+                _this.movieInfos = newList;
+            }
+            else if (data === 'Failed') {
+                _this.message = 'Persistence Failed';
+            }
+            else {
+                _this.message = 'Not expected flow M1';
+            }
+        }, function (error) {
+            console.log(error);
+            _this.message = 'Problem occurred';
+        });
+    };
+    return MovieInfoComponent;
+}());
+MovieInfoComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-movie-info',
+        template: __webpack_require__("../../../../../src/app/movie/movie-info/movie-info.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/movie/movie-info/movie-info.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_platform_browser__["c" /* DomSanitizer */]) === "function" && _b || Object])
+], MovieInfoComponent);
+
+var _a, _b;
+//# sourceMappingURL=movie-info.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-list/movie-list.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-list/movie-list.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul *ngFor=\"let movie of movieFilters\">\n\t<li>{{movie}}</li>\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-list/movie-list.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieListComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MovieListComponent = (function () {
+    function MovieListComponent(httpService) {
+        this.httpService = httpService;
+    }
+    MovieListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        //    this.httpService.getAny('assets/json/movies/movieFilter.json', this).subscribe(
+        this.httpService.getAny('/mov/mlg', this).subscribe(function (data) {
+            _this.movieFilters = data;
+        }, function (error) { return console.log(error); });
+    };
+    return MovieListComponent;
+}());
+MovieListComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-movie-list',
+        template: __webpack_require__("../../../../../src/app/movie/movie-list/movie-list.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/movie/movie-list/movie-list.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object])
+], MovieListComponent);
+
+var _a;
+//# sourceMappingURL=movie-list.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-parsed/movie-parsed.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-parsed/movie-parsed.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<ul *ngFor=\"let movieList of movieLists; let i = index\">\r\n\t<li>Page {{i}}\r\n\t\t<ul *ngFor=\"let moviee of movieList\">\r\n\t\t\t<li>{{moviee.movie}} -> {{moviee.filter}}</li>\r\n\t\t</ul>\r\n\t</li>\r\n</ul>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie-parsed/movie-parsed.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieParsedComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var MovieParsedComponent = (function () {
+    function MovieParsedComponent(httpService) {
+        this.httpService = httpService;
+    }
+    MovieParsedComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // this.httpService.getAny('assets/json/movies/parsedMovies.json', this).subscribe(
+        this.httpService.getAny('/mov/mpg', this).subscribe(function (data) {
+            _this.movieLists = data;
+        }, function (error) { return console.log(error); });
+    };
+    return MovieParsedComponent;
+}());
+MovieParsedComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-movie-parsed',
+        template: __webpack_require__("../../../../../src/app/movie/movie-parsed/movie-parsed.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/movie/movie-parsed/movie-parsed.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object])
+], MovieParsedComponent);
+
+var _a;
+//# sourceMappingURL=movie-parsed.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div>\n\n<div class=\"page-header\"><h3 align=\"center\">Movie Parser</h3></div>\n\n<ul class=\"nav nav-tabs nav-justified\">\n  <li routerLinkActive=\"active\"><a routerLink=\"mi\">Movie Info</a></li>\n  <li routerLinkActive=\"active\"><a routerLink=\"ml\">Movie Filter</a></li>\n  <li routerLinkActive=\"active\"><a routerLink=\"mp\">Movie Parsed</a></li>\n</ul>\n<div>\n\t<router-outlet></router-outlet>\n</div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/movie/movie.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieComponent; });
+/* unused harmony export MovieInfo */
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var MovieComponent = (function () {
+    function MovieComponent() {
+    }
+    MovieComponent.prototype.ngOnInit = function () {
+    };
+    return MovieComponent;
+}());
+MovieComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-movie',
+        template: __webpack_require__("../../../../../src/app/movie/movie.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/movie/movie.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], MovieComponent);
+
+var MovieInfo = (function () {
+    function MovieInfo() {
+    }
+    MovieInfo.getEmptyInstance = function () {
+        var emptyObj = {
+            movie: '',
+            magnet: '',
+            filter: '',
+            youtube: '',
+            subscene: ''
+        };
+        return emptyObj;
+    };
+    return MovieInfo;
+}());
+
+//# sourceMappingURL=movie.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/not-used-feature/not-used-feature.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -900,6 +1269,130 @@ NotUsedFeatureComponent = __decorate([
 
 var _a, _b;
 //# sourceMappingURL=not-used-feature.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/o-auth/o-auth.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/o-auth/o-auth.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n\t<div class=\"form-group\">\n\t\t<button class=\"btn btn-primary\" type=\"button\" [disabled]=\"false\" (click)=\"gitCodeGeneration()\">Submit to login via git</button>\n\t</div>\n\t<div class=\"form-group\">\n\t\t<button class=\"btn btn-primary\" type=\"button\" [disabled]=\"false\" (click)=\"gitGeneratedCode()\">Check level 1 authentication passed</button>\n\t</div>\n\t<div class=\"form-group\">\n\t\t<button class=\"btn btn-primary\" type=\"button\" [disabled]=\"!this.code\" (click)=\"gitGetBearer()\">Perform level 2 authentication</button>\n\t</div>\n</div>\n{{message}}"
+
+/***/ }),
+
+/***/ "../../../../../src/app/o-auth/o-auth.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OAuthComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_router__ = __webpack_require__("../../../router/@angular/router.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/@angular/common.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var OAuthComponent = (function () {
+    function OAuthComponent(httpService, activatedRoute, location) {
+        this.httpService = httpService;
+        this.activatedRoute = activatedRoute;
+        this.location = location;
+        this.clientId = '66e7f15d28f2db6af2fe';
+        this.clientSecret = 'd2e4fc7dfce452639e117d31ecf569a5a95b61ef';
+        this.redirectUri = 'http://localhost:4200/oa';
+        this.generalUri = 'http://sim.io';
+    }
+    OAuthComponent.prototype.gitCodeGeneration = function () {
+        window.location.href = 'http://github.com/login/oauth/authorize' + '?client_id=' + this.clientId + '&scope=repo&redirect_uri=' + this.redirectUri;
+        //    this.httpService.getAny('http://github.com/login/oauth/authorize' + '?client_id=' + this.clientId + '&scope=repo&redirect_uri=' + this.redirectUri, this).subscribe(res => {
+        //      this.message = res;
+        //    }
+        //      , errRes => {
+        //        this.message = 'Call to git failed';
+        //      });
+    };
+    OAuthComponent.prototype.gitGeneratedCode = function () {
+        var _this = this;
+        this.httpService.getAny('oauth/gitcode', this).subscribe(function (res) {
+            _this.code = res;
+            _this.message = res;
+        }, function (errRes) {
+            _this.message = 'Call to get code failed';
+        });
+    };
+    OAuthComponent.prototype.gitGetBearer = function () {
+        //    window.location.href = 'http://github.com/login/oauth/access_token' + '?client_id=' + this.clientId + '&client_secret=' + this.clientSecret + '&code=' + this.code + '&redirect_uri=' + this.redirectUri;
+        var _this = this;
+        //    this.httpService.postRetStr('https://github.com/login/oauth/access_token', {client_id: this.clientId, client_secret: this.clientSecret, code: this.code}, this).subscribe(res => {
+        //      this.anyObj = res;
+        ////      this.token = res.security_token;
+        ////      this.type = res.type;
+        //    }
+        //      , errRes => {
+        //        this.message = 'Call to get code failed';
+        //      });
+        this.httpService.getAny('http://github.com/login/oauth/access_token' + '?client_id=' + this.clientId + '&client_secret=' + this.clientSecret + '&code=' + this.code + '&redirect_uri=' + this.redirectUri, this).subscribe(function (res) {
+            _this.token = res;
+            _this.message = res;
+            console.log(res);
+        }, function (errRes) {
+            _this.message = 'Call to get code failed';
+        });
+    };
+    OAuthComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.activatedRoute.queryParams.subscribe(function (params) {
+            console.log(JSON.stringify(params));
+            console.log(params['code']);
+            _this.code = params['code'];
+            console.log(JSON.stringify(params));
+            console.log(params['access_token']);
+            _this.token = params['access_token'];
+            console.log(params['token_type']);
+            _this.tokenType = params['token_type'];
+        });
+        this.location.replaceState('oa');
+    };
+    return OAuthComponent;
+}());
+OAuthComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["o" /* Component */])({
+        selector: 'app-o-auth',
+        template: __webpack_require__("../../../../../src/app/o-auth/o-auth.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/o-auth/o-auth.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_router__["a" /* ActivatedRoute */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */]) === "function" && _c || Object])
+], OAuthComponent);
+
+var _a, _b, _c;
+//# sourceMappingURL=o-auth.component.js.map
 
 /***/ }),
 
@@ -1515,11 +2008,86 @@ PasswdgenComponent = __decorate([
         template: __webpack_require__("../../../../../src/app/passwd/passwdgen/passwdgen.component.html"),
         styles: [__webpack_require__("../../../../../src/app/passwd/passwdgen/passwdgen.component.css")]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_share_data_service__["a" /* ShareDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_share_data_service__["a" /* ShareDataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["a" /* Router */]) === "function" && _c || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__services_share_data_service__["a" /* ShareDataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_share_data_service__["a" /* ShareDataService */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */]) === "function" && _c || Object])
 ], PasswdgenComponent);
 
 var _a, _b, _c;
 //# sourceMappingURL=passwdgen.component.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/post-sim/post-sim.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/post-sim/post-sim.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container-fluid\">\n\t\t<div class=\"form-group\">\n\t\t\t<label>Url</label> <input type=\"text\" class=\"form-control\" placeholder=\"http://abc:8080\" [(ngModel)]=\"aUrl\">\n\t\t</div>\n\t\t<div class=\"form-group\">\n\t\t\t<label>String</label> <input type=\"text\" class=\"form-control\" placeholder=\"abc\" [(ngModel)]=\"aText\">\n\t\t</div>\n\t\t<div class=\"form-group\">\n\t\t\t<button class=\"btn btn-primary\" type=\"button\" [disabled]=\"!aUrl || !aText\" (click)=\"submitInput()\">Post</button>\n\t\t</div>\n\t\t<div>{{aRes}}</div>\n\t\t<div>{{aErrRes}}</div>\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/post-sim/post-sim.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PostSimComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_http_comp__ = __webpack_require__("../../../../../src/app/services/http.comp.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var PostSimComponent = (function () {
+    function PostSimComponent(httpService) {
+        this.httpService = httpService;
+    }
+    PostSimComponent.prototype.ngOnInit = function () {
+    };
+    PostSimComponent.prototype.submitInput = function () {
+        var _this = this;
+        this.httpService.postRetObjStr(this.aUrl, this.aText, this).subscribe(function (res) {
+            _this.aRes = JSON.stringify(res);
+            _this.message = '';
+            _this.aErrRes = '';
+        }, function (errorRes) {
+            _this.aErrRes = errorRes.message;
+        });
+    };
+    return PostSimComponent;
+}());
+PostSimComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-post-sim',
+        template: __webpack_require__("../../../../../src/app/post-sim/post-sim.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/post-sim/post-sim.component.css")]
+    }),
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_http_comp__["a" /* HttpService */]) === "function" && _a || Object])
+], PostSimComponent);
+
+var _a;
+//# sourceMappingURL=post-sim.component.js.map
 
 /***/ }),
 
@@ -1550,13 +2118,17 @@ var HttpService = (function () {
     };
     HttpService.prototype.getAny = function (url, caller) {
         caller.message = 'API is bieng called ...';
+        //    const httpHeaders = new HttpHeaders();
+        //    httpHeaders.set('Access-Control-Allow-Origin', '*');
+        //    httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        //    return this.httpClient.get(url, {'headers': httpHeaders});
         return this.httpClient.get(url);
     };
     HttpService.prototype.getS = function (url) {
         return this.httpClient.get(url, { responseType: 'text' });
     };
     HttpService.prototype.getP = function (url, obj) {
-        var params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]();
+        var params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["d" /* HttpParams */]();
         for (var key in obj) {
             if (obj.hasOwnProperty(key)) {
                 console.log(key + ' ' + obj[key]);
@@ -1569,7 +2141,7 @@ var HttpService = (function () {
     HttpService.prototype.postN = function (url) {
         //    const subject = new Subject<number>();
         var body = { content: 'Brad', id: 1 };
-        var params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpParams */]().set('name', 'manveen');
+        var params = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["d" /* HttpParams */]().set('name', 'manveen');
         //    const req = new HttpRequest('POST', url, body, {
         //      params: params,
         //      reportProgress: true,
@@ -1611,11 +2183,19 @@ var HttpService = (function () {
     };
     HttpService.prototype.postRetAny = function (url, objToPost, caller) {
         caller.message = 'API is bieng called ...';
-        return this.httpClient.post(url, objToPost);
+        var httpHeaders = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpHeaders */]();
+        httpHeaders = httpHeaders.set('Access-Control-Allow-Origin', '*');
+        httpHeaders = httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        console.log(httpHeaders.get('Access-Control-Allow-Origin'));
+        return this.httpClient.post(url, objToPost, { headers: httpHeaders });
     };
     HttpService.prototype.postRetObj = function (url, objToPost, caller) {
         caller.message = 'API is bieng called ...';
         return this.httpClient.post(url, objToPost);
+    };
+    HttpService.prototype.postRetObjStr = function (url, str, caller) {
+        caller.message = 'API is bieng called ...';
+        return this.httpClient.post(url, str);
     };
     HttpService.prototype.postRetBool = function (url, objToPost) {
         return this.httpClient.post(url, objToPost);
@@ -1626,7 +2206,11 @@ var HttpService = (function () {
     };
     HttpService.prototype.postRetStr = function (url, objToPost, caller) {
         caller.message = 'API is bieng called ...';
-        return this.httpClient.post(url, objToPost, { responseType: 'text' });
+        var httpHeaders = new __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["c" /* HttpHeaders */]();
+        httpHeaders = httpHeaders.set('Access-Control-Allow-Origin', '*');
+        httpHeaders = httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+        httpHeaders = httpHeaders.set('Access-Control-Allow-Headers', 'Content-Type');
+        return this.httpClient.post(url, objToPost, { headers: httpHeaders, responseType: 'text' });
     };
     HttpService.prototype.postSRetStr = function (url, str, caller) {
         caller.message = 'API is bieng called ...';
