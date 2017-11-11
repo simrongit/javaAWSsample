@@ -18,6 +18,10 @@ export class HttpService {
 
   public getAny(url: string, caller: any): Observable<any> {
     caller.message = 'API is bieng called ...';
+//    const httpHeaders = new HttpHeaders();
+//    httpHeaders.set('Access-Control-Allow-Origin', '*');
+//    httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+//    return this.httpClient.get(url, {'headers': httpHeaders});
     return this.httpClient.get(url);
   }
 
@@ -92,12 +96,21 @@ export class HttpService {
 
   public postRetAny(url: string, objToPost: object, caller: any): Observable<any> { // this is passed just to set message
     caller.message = 'API is bieng called ...';
-    return this.httpClient.post(url, objToPost);
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.set('Access-Control-Allow-Origin', '*');
+    httpHeaders = httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    console.log(httpHeaders.get('Access-Control-Allow-Origin'));
+    return this.httpClient.post(url, objToPost, {headers: httpHeaders});
   }
 
   public postRetObj(url: string, objToPost: object, caller: any): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
     caller.message = 'API is bieng called ...';
     return this.httpClient.post(url, objToPost);
+  }
+
+  public postRetObjStr(url: string, str: string, caller: any): Observable<object> { // ? if you specify certain object and returned object is different then what kind of error faced
+    caller.message = 'API is bieng called ...';
+    return this.httpClient.post(url, str);
   }
 
   public postRetBool(url: string, objToPost: object): Observable<boolean> {
@@ -110,7 +123,11 @@ export class HttpService {
 
   public postRetStr(url: string, objToPost: object, caller: any): Observable<string> { // ? if response type is not text and string is returned then what object contains .. answer null
     caller.message = 'API is bieng called ...';
-    return this.httpClient.post(url, objToPost, {responseType: 'text'});
+    let httpHeaders = new HttpHeaders();
+    httpHeaders = httpHeaders.set('Access-Control-Allow-Origin', '*');
+    httpHeaders = httpHeaders.set('Access-Control-Allow-Methods', 'POST, GET, OPTIONS');
+    httpHeaders = httpHeaders.set('Access-Control-Allow-Headers', 'Content-Type');
+    return this.httpClient.post(url, objToPost, {headers: httpHeaders, responseType: 'text'});
   }
 
   public postSRetStr(url: string, str: string, caller: any): Observable<string> {

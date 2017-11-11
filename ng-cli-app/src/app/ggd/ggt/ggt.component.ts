@@ -14,7 +14,7 @@ export class GgtComponent implements OnInit {
 
   ggdata: [string];
 
-  message: string = this.ggdata[100];
+  message: string;
 
   printGGInfo: GGInfo;
 

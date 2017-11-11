@@ -6,7 +6,7 @@ import {RouterModule} from '@angular/router';
 // import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FormsModule} from '@angular/forms';
 // import {PasswdModule} from './passwd/passwd.module';
-import {HashLocationStrategy, Location, LocationStrategy} from '@angular/common';
+import {HashLocationStrategy, Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 
 import {AppComponent} from './app.component';
 import {HttpService} from './services/http.comp';
@@ -29,6 +29,12 @@ import { GgdComponent } from './ggd/ggd.component';
 import { GgtComponent } from './ggd/ggt/ggt.component';
 import { GgsComponent } from './ggd/ggs/ggs.component';
 import { HomeAboutComponent } from './home-about/home-about.component';
+import { PostSimComponent } from './post-sim/post-sim.component';
+import { OAuthComponent } from './o-auth/o-auth.component';
+import { MovieComponent } from './movie/movie.component';
+import { MovieInfoComponent } from './movie/movie-info/movie-info.component';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
+import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.component';
 
 // import {VmaModule} from './vma/vma.module';
 
@@ -46,7 +52,13 @@ import { HomeAboutComponent } from './home-about/home-about.component';
     GgdComponent,
     GgtComponent,
     GgsComponent,
-    HomeAboutComponent
+    HomeAboutComponent,
+    PostSimComponent,
+    OAuthComponent,
+    MovieComponent,
+    MovieInfoComponent,
+    MovieListComponent,
+    MovieParsedComponent
   ],
   imports: [
     BrowserModule,
@@ -64,7 +76,7 @@ import { HomeAboutComponent } from './home-about/home-about.component';
   providers: [HttpService, // PasswdService,
     ShareDataService,
     Location,
-    {provide: LocationStrategy, useClass: HashLocationStrategy}],
+    {provide: LocationStrategy, useClass: PathLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {

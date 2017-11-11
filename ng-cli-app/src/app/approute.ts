@@ -7,10 +7,17 @@ import {PasswddecryptComponent} from './passwd/passwddecrypt/passwddecrypt.compo
 import {PasswdSaveComponent} from './passwd/passwd-save/passwd-save.component';
 import {PasswdRetrieveComponent} from './passwd/passwd-retrieve/passwd-retrieve.component';
 import {PasswdAboutComponent} from './passwd/passwd-about/passwd-about.component';
-import { GgdComponent } from './ggd/ggd.component';
+import {GgdComponent} from './ggd/ggd.component';
 import {GgtComponent} from './ggd/ggt/ggt.component';
 import {GgsComponent} from './ggd/ggs/ggs.component';
-import { HomeAboutComponent } from './home-about/home-about.component';
+import {HomeAboutComponent} from './home-about/home-about.component';
+import {PostSimComponent} from './post-sim/post-sim.component';
+import {OAuthComponent} from './o-auth/o-auth.component';
+
+import { MovieComponent } from './movie/movie.component';
+import { MovieInfoComponent } from './movie/movie-info/movie-info.component';
+import { MovieListComponent } from './movie/movie-list/movie-list.component';
+import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.component';
 
 export const appRoutes: Routes = [
   {path: '', component: HomeAboutComponent},
@@ -26,12 +33,25 @@ export const appRoutes: Routes = [
       {path: 'pAbout', component: PasswdAboutComponent}
     ]
   },
-  {path: 'ggd', component: GgdComponent,
+  {
+    path: 'ggd', component: GgdComponent,
     children: [
       {path: 'ggt', component: GgtComponent},
       {path: 'ggs', component: GgsComponent},
-    ]},
+    ]
+  },
   {path: 'luhnapp', component: LuhnalgComponent},
-  {path: 'vma', loadChildren: './vma/vma.module#VmaModule'}
+  {path: 'posttest', component: PostSimComponent},
+  {path: 'vma', loadChildren: './vma/vma.module#VmaModule'},
+  {path: 'oa', component: OAuthComponent},
+  {path: 'oauth/gitcallback', component: OAuthComponent},
+  {
+    path: 'movie', component: MovieComponent,
+    children: [
+      {path: 'mi', component: MovieInfoComponent},
+      {path: 'ml', component: MovieListComponent},
+      {path: 'mp', component: MovieParsedComponent},
+    ]
+  }
 ];
 

@@ -507,7 +507,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var GgtComponent = (function () {
     function GgtComponent(httpService) {
         this.httpService = httpService;
-        this.message = this.ggdata[100];
         this.count = 1; // internal counter for shabad count
         this.iIndex = 1; // user input for shabad count
         this.fileFetchIndex = 0;
