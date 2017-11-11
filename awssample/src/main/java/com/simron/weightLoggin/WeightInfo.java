@@ -6,7 +6,28 @@ public class WeightInfo {
 	
 	private Date date;
 	private String userId;
-	private WeightTime weightTime;
+	private int hour;
+	private int min;
+	private double weight;
+	public int getHour() {
+		return hour;
+	}
+	public void setHour(int hour) {
+		this.hour = hour;
+	}
+	public int getMin() {
+		return min;
+	}
+	public void setMin(int min) {
+		this.min = min;
+	}
+	public double getWeight() {
+		return weight;
+	}
+	public void setWeight(double weight) {
+		this.weight = weight;
+	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -18,11 +39,5 @@ public class WeightInfo {
 	}
 	public void setUserId(String userId) {
 		this.userId = userId;
-	}
-	public WeightTime getWeightTime() {
-		return weightTime;
-	}
-	public void setWeightTime(WeightTime weightTime) {
-		this.weightTime = weightTime;
 	}
 }

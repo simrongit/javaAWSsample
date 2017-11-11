@@ -44,7 +44,6 @@ public class VMAllocationTest {
 		vmAllocation.logout(adminUserKey);
 	}
 	
-	@Test
 	public void loginLogout() {
 		vmAllocation.logout(testUserKey);
 		vmAllocation.logout(adminUserKey);
@@ -77,7 +76,6 @@ public class VMAllocationTest {
 		assertEquals("Not logged in", result);
 	}
 	
-	@Test
 	public void addVM() {
 
 		VMInfo vmInfo = new VMInfo("","");
@@ -104,7 +102,6 @@ public class VMAllocationTest {
 
 	}
 
-	@Test
 	public void removeVM() {
 		VMInfo vmInfo = new VMInfo("","");
 		String result = vmAllocation.removeVM(vmInfo);
@@ -126,7 +123,6 @@ public class VMAllocationTest {
 		assertEquals("VM not exist", result);
 	}
 	
-	@Test
 	public void allocateVM() {
 		VMInfo vmInfo = new VMInfo("","");
 		String result = vmAllocation.allocateVM(vmInfo);
@@ -147,7 +143,6 @@ public class VMAllocationTest {
 		assertEquals("Already allocated", result);
 	}
 
-	@Test
 	public void releaseVM() {
 		VMInfo testVmInfo = new VMInfo("","");
 		String result = vmAllocation.releaseVM(testVmInfo);

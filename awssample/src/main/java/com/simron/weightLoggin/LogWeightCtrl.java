@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.simron.domain.Wrapper;
 import com.simron.utils.CustomException;
 import com.simron.utils.MandatoryInputs;
 
@@ -19,10 +20,10 @@ public class LogWeightCtrl {
 	private LogWeight logWeight;
 	
 	@PostMapping("/lastEntry")
-	public WeightTime getRecentEntry(@RequestBody String userId) {
+	public WeightInfo getRecentEntry(@RequestBody String userId) {
 		MandatoryInputs.string(userId, "User Id");
-		WeightTime weightTime = logWeight.getLastEntry(userId);
-		return weightTime;
+		WeightInfo weightInfo = logWeight.getLastEntry(userId);
+		return weightInfo;
 	}
 
 	@PostMapping("/allEntries")
@@ -33,11 +34,15 @@ public class LogWeightCtrl {
 	}
 	
 	@PostMapping("/createEntry")
-	public boolean createEntry(@RequestBody WeightInfo weightInfo) {
+	//damn, need to introduce wrapper so that stupid volley JsonObjectRequest can handle it
+	//org.json.JSONException: Value true of type java.lang.Boolean cannot be converted to JSONObject
+	public Wrapper createEntry(@RequestBody WeightInfo weightInfo) {
 		MandatoryInputs.string(weightInfo.getUserId(), "User Id");
 		int result = logWeight.storeWeightInfo(weightInfo);
 		if(result == 1) {
-			return true;
+			Wrapper wrapper = new Wrapper();
+			wrapper.setB(true);
+			return wrapper;
 		}else {
 			throw new CustomException("DB Failure");
 		}
