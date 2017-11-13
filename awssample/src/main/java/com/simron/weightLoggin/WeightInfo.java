@@ -9,6 +9,7 @@ public class WeightInfo {
 	private int hour;
 	private int min;
 	private double weight;
+	private String note;
 	public int getHour() {
 		return hour;
 	}
@@ -40,4 +41,11 @@ public class WeightInfo {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
+	
 }
