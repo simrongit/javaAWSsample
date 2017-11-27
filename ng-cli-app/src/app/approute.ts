@@ -19,6 +19,10 @@ import { MovieInfoComponent } from './movie/movie-info/movie-info.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.component';
 
+import { AndroidComponent } from './android/android.component';
+import { AmdocsComponent } from './amdocs/amdocs.component';
+import { AboutComponent } from './about/about.component';
+
 export const appRoutes: Routes = [
   {path: '', component: HomeAboutComponent},
   {path: 'nufapp', component: NotUsedFeatureComponent},
@@ -52,6 +56,9 @@ export const appRoutes: Routes = [
       {path: 'ml', component: MovieListComponent},
       {path: 'mp', component: MovieParsedComponent},
     ]
-  }
+  },
+  {path: 'and', component: AndroidComponent},
+  {path: 'amd', component: AmdocsComponent},
+  {path: 'about', component: AboutComponent}
 ];
 

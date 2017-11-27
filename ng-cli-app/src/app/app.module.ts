@@ -35,7 +35,12 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieInfoComponent } from './movie/movie-info/movie-info.component';
 import { MovieListComponent } from './movie/movie-list/movie-list.component';
 import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.component';
-
+import { AndroidComponent } from './android/android.component';
+import { AmdocsComponent } from './amdocs/amdocs.component';
+import { AboutComponent } from './about/about.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { FalloutTrendAnalyzerComponent } from './amdocs/fallout-trend-analyzer/fallout-trend-analyzer.component';
+import { SafeDBUpdateComponent } from './amdocs/safe-dbupdate/safe-dbupdate.component';
 // import {VmaModule} from './vma/vma.module';
 
 @NgModule({
@@ -58,8 +63,14 @@ import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.componen
     MovieComponent,
     MovieInfoComponent,
     MovieListComponent,
-    MovieParsedComponent
+    MovieParsedComponent,
+    AndroidComponent,
+    AmdocsComponent,
+    AboutComponent,
+    FalloutTrendAnalyzerComponent,
+    SafeDBUpdateComponent
   ],
+  entryComponents: [ FalloutTrendAnalyzerComponent, SafeDBUpdateComponent ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -71,7 +82,8 @@ import { MovieParsedComponent } from './movie/movie-parsed/movie-parsed.componen
     //    PasswdModule,
     RouterModule.forRoot(
       appRoutes
-    )
+    ),
+    NgbModule.forRoot()
   ],
   providers: [HttpService, // PasswdService,
     ShareDataService,
