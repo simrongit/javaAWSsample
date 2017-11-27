@@ -21,7 +21,7 @@ public class LogWeight {
 	private DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	
 	public WeightInfo getLastEntry(String userId) {
-		String query = "select weight, wake_up_hour, wake_up_min, creation_date from weight_log where user_id = ? order by creation_date desc limit 1"; // creating desc index didn't helped otherwise order by wasn't required
+		String query = "select weight, wake_up_hour, wake_up_min, creation_date, note from weight_log where user_id = ? order by creation_date desc limit 1"; // creating desc index didn't helped otherwise order by wasn't required
 		String[][] userResult = DbInteraction.executeQuery(query, new String[] {userId});
 		WeightInfo weightInfo = null;
 		if(userResult.length == 0) {
@@ -42,11 +42,12 @@ public class LogWeight {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		weightInfo.setNote(userResult[4]);
 		return weightInfo;
 	}
 	
 	public List<WeightInfo> getHistory(String userId){
-		String query = "select weight, wake_up_hour, wake_up_min, creation_date from weight_log where user_id = ? order by creation_date desc"; // limit vs rownum - mysql vs oracle
+		String query = "select weight, wake_up_hour, wake_up_min, creation_date, note from weight_log where user_id = ? order by creation_date desc"; // limit vs rownum - mysql vs oracle
 		String[][] userResult = DbInteraction.executeQuery(query, new String[] {userId});
 		List<WeightInfo> listWeightInfo = new ArrayList<>();
 		for(String[] userRes: userResult) {
@@ -57,8 +58,8 @@ public class LogWeight {
 	}
 	
 	public int storeWeightInfo(WeightInfo wInfo) {
-		String query = "insert into weight_log values(?, ?, ?, ?, ?)";
-		int res = DbInteraction.executeUpdate(query, new String[] {wInfo.getUserId(), dateFormat.format(wInfo.getDate()), Double.toString(wInfo.getWeight()), Integer.toString(wInfo.getHour()), Integer.toString(wInfo.getMin()) });
+		String query = "insert into weight_log values(?, ?, ?, ?, ?, ?)";
+		int res = DbInteraction.executeUpdate(query, new String[] {wInfo.getUserId(), dateFormat.format(wInfo.getDate()), Double.toString(wInfo.getWeight()), Integer.toString(wInfo.getHour()), Integer.toString(wInfo.getMin()), wInfo.getNote() });
 		return res;
 	}
 	
