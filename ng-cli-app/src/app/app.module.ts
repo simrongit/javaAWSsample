@@ -41,36 +41,34 @@ import { AboutComponent } from './about/about.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { FalloutTrendAnalyzerComponent } from './amdocs/fallout-trend-analyzer/fallout-trend-analyzer.component';
 import { SafeDBUpdateComponent } from './amdocs/safe-dbupdate/safe-dbupdate.component';
+import { BpmFlowCreatorComponent } from './amdocs/bpm-flow-creator/bpm-flow-creator.component';
+import { EmailServerLogsComponent } from './amdocs/email-server-logs/email-server-logs.component';
+import { PerformanceLogAanalyzerComponent } from './amdocs/performance-log-aanalyzer/performance-log-aanalyzer.component';
+import { AboutSimronComponent } from './about-simron/about-simron.component';
+import { LogToHtmlComponent } from './amdocs/log-to-html/log-to-html.component';
+import { StatusReportingComponent } from './amdocs/status-reporting/status-reporting.component';
+import { ServerUpStatusComponent } from './amdocs/server-up-status/server-up-status.component';
 // import {VmaModule} from './vma/vma.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswdComponent,
     LuhnalgComponent,
-    PasswdgenComponent,
-    PasswddecryptComponent,
-    PasswdSaveComponent,
-    PasswdRetrieveComponent,
-    PasswdAboutComponent,
+    PasswdComponent, PasswdgenComponent, PasswddecryptComponent, PasswdSaveComponent, PasswdRetrieveComponent, PasswdAboutComponent,
     NotUsedFeatureComponent,
-    GgdComponent,
-    GgtComponent,
-    GgsComponent,
+    GgdComponent, GgtComponent, GgsComponent,
     HomeAboutComponent,
     PostSimComponent,
     OAuthComponent,
-    MovieComponent,
-    MovieInfoComponent,
-    MovieListComponent,
-    MovieParsedComponent,
+    MovieComponent, MovieInfoComponent, MovieListComponent, MovieParsedComponent,
     AndroidComponent,
     AmdocsComponent,
     AboutComponent,
-    FalloutTrendAnalyzerComponent,
-    SafeDBUpdateComponent
+    FalloutTrendAnalyzerComponent, SafeDBUpdateComponent, BpmFlowCreatorComponent, EmailServerLogsComponent, PerformanceLogAanalyzerComponent, AboutSimronComponent,
+    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent
   ],
-  entryComponents: [ FalloutTrendAnalyzerComponent, SafeDBUpdateComponent ],
+  entryComponents: [ FalloutTrendAnalyzerComponent, SafeDBUpdateComponent, BpmFlowCreatorComponent, EmailServerLogsComponent, PerformanceLogAanalyzerComponent,
+    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent ],
   imports: [
     BrowserModule,
     HttpModule,

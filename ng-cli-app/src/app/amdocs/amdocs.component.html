@@ -14,36 +14,155 @@
   Production db update validator
 </p>
 <div class="list-group">
-    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
+  <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">Xtra-C</h5>
+      <small>Nov 2008</small>
+    </div>
+    <p class="mb-1">
+    This is the most cherished tool from this set. I was given a manual boring task as part of monthly rotation in team.
+    Felt like I can't do this. Task was to let team know about their <span title="
+    Merge task - During development phase you save your work in a repository. 
+    Your peer work will depend upon that so they need to take it and add it in their work.
+    'Take' is known as pull, 'Save' is known as check-in, 'Add' is known as merge, 'Work' is known as task.
+    There were two release running in parallel one in development phase another in production phase.
+    Development phase people check-in their requirement related task. Production phase people check-in their fixes related task.
+    Production phase task is required to be merged with development phase task which is known as merge task."
+    style="color:deepskyblue; cursor:help;">merge task</span>.
+    If people are organized enough then this work is not required. However fact is for X reasons people don't check-in their merge task.
+    These task reviewr doesn't perform review. So all need reminder with their superior in CC to pressusrise them in reassesing their priorities.
+    Hence the requirement of this manual effort. Since the day it get created everyone life as saved.
+    I took the access of database where Xtra-C store its information. Browsed through table to figure out where is the information which I need.
+    Wrote java program which reads data compile it in html send it in email. Email was configured to
+    </p>
+    <ul>
+      <li>Send individual reminder.</li>
+      <li>After threshold individual reminder with their manager in CC</li>
+      <li>Aggregate all task with assigne, reviewer, aging information and send email to team</li>
+    </ul>
+    <small>-_-_-_-_-_-_-_-_-_-_-_-_-_</small>
+  </a>
+  <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
+    <div class="d-flex w-100 justify-content-between">
+      <h3 class="mb-1">Fallout Trend Analyzer</h3>
+      <small>May 2016</small>
+    </div>
+    Idea behind this tool was to give concise information which can help us in understanding fallout trend 
+    thus helping in understanding pattern which cause fallout. That will lead to root cause
+    <ul>
+      <li>
+        <b><ins>Quick Scan</ins></b>
+        <ol type="I">
+          <li>It offers no delay in seeing graphs for various activity. Data is cached on it is first launched.</li>
+          <li>You can switch sample size to see how exactly it behaves (15min to 6hrs)</li>
+          <li>Rest button to load data again</li>
+        </ol>
+      </li>
+      <li>
+        <b><ins>Detail Scan</ins></b>
+        <ol type="I">
+          <li>It provides various filters which help in analysis. For e.g. you can find how many Change Mass orders got failed and successfully passed.</li>
+          <li>It caches result for each activity so jumping back is quick. But first load is slower as it pulls detailed information form DB.</li>
+          <li>It shows multiple lines if you want to see comparison between type. For e.g. failed orders vs non failed.</li>
+        </ol>
+      </li>
+    </ul>
+    <small>-_-_-_-_-_-_-_-_-_-_-_-_-_</small>
+  </a>
+    <a (click)="open('elfc')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
-        <h3 class="mb-1">Fallout Trend Analyzer</h3>
-        <small>May 2016</small>
+        <h3 class="mb-1">Email Log from cluster</h3>
+        <small>Sep 2016</small>
       </div>
-      Idea behind this tool was to give concise information which can help us in understanding fallout trend 
-        thus helping in understanding pattern which cause fallout. That will lead to root cause
-        <ul>
-          <li>
-            <b><ins>Quick Scan</ins></b>
-            <ol type="I">
-              <li>It offers no delay in seeing graphs for various activity. Data is cached on it is first launched.</li>
-              <li>You can switch sample size to see how exactly it behaves (15min to 6hrs)</li>
-              <li>Rest button to load data again</li>
-            </ol>
-          </li>
-          <li>
-            <b><ins>Detail Scan</ins></b>
-            <ol type="I">
-              <li>It provides various filters which help in analysis. For e.g. you can find how many Change Mass orders got failed and successfully passed.</li>
-              <li>It caches result for each activity so jumping back is quick. But first load is slower as it pulls detailed information form DB.</li>
-              <li>It shows multiple lines if you want to see comparison between type. For e.g. failed orders vs non failed.</li>
-            </ol>
-          </li>
-        </ul>
+      <p class="mb-1">
+        Fetching information from log is common practice either to share information or for easy browsing access on local.
+        For order, log tell us in which stage/activity problem exist.
+        This adds to effort of finding on which server in cluster that log would be present and finding relevant activity of your order.
+        If you have to hop many server just to reach your log then it becomes killer.
+        This tool saves all this where user just need to tell what order he is intersted in and rest is taken by the tool.
+        Also it is made specific to request/response part as 95% of time we are interested in that information only. 
+      </p>
+      There are two modes.
+      <ul>
+        <li>Order Mode : You can provide order action id and it will figure out last stage and send logs for it </li>
+        <li>Stage Mode : Provide stage id and select request or enter manually if doesn’t exist. </li>
+      </ul>
       <small>-_-_-_-_-_-_-_-_-_-_-_-_-_</small>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('pla')" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h3 class="mb-1">Performance Log Analysis</h3>
+        <small>Oct 2011</small>
+      </div>
+      <p class="mb-1">
+        Performance log have execution time information for many entities. Its a time consuming effort to read log and find impacted area.
+        Performance analysis done on local machine generally doesn't help. As DB latency and API performance varies grately in local machine from production.
+        Before final performance testing which happens near UAT, we want to do it sooner so that issues can be fixed during development timeitself.
+        Development phase is cheapest time to fix performance issue. To reduce manual effort of reading performance log this tool is created.
+        It uses ordering stage and phase information to highlight performance issue. 
+        Best part is grouping of information which is achieved by html and javascript. 
+        And omoting very small value. Which helps in removing lots of cluster.
+        On expanding information is shown in tabular form with minimal information. So that analysis of log is matter of second.
+        30 rules were created to identify which performance impact can be ignored. Like parent-child relation, 0 value etc.
+        Anything deeper then that will require profiler for analysis.
+        Plus a bifercation of time spent on DB and API related activity.
+      </p>
+      <ul>
+        <li>Grey button shows activities which are participating in flow.</li>
+        <li>Blue button shows all the methods/API/DB calls involved during whole process</li>
+        <li>Red button shows also those methos/API/DB calls were parsed from log but not taken into consideration due to configured reasons.</li>
+      </ul>
+    </a>
+    <a (click)="open('lth')" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">LogToHtmlConverter </h5>
+      </div>
+      <small>Oct 2010, V2 Mar 2012</small>
+      <p class="mb-1">Reading log file is a nightmare when you have multiple orders running in parallel and writing to same log.
+        And that parallel order number is huge as there are multiple servers which are running orders in parallel.
+        There is good chance that all your is not in same log file.
+        This tool comes into picture as a saviour between all this crises.
+      </p>
+      <ol>
+        <li>It groups all order related log under one button which is representing order id</li>
+        <li>In side order it groups further log into order stages </li>
+        <li>Grouping doesn't end here, in each stage it group Exception & API request/response also.</li>
+        <li>Everything expandable/colapsable at click of button. With red color for exception and blue one for request/response</li>
+        <li>It helps more by dimming log which you are not intersted in, thus further improving readablity. Configurable.</li>
+        <li>At end little summary grouped based on error, it list down order for that error</li>
+        <li>It will also get the logs from server by ftp</li>
+      </ol>
+    </a>
+    <a (click)="open('sr')" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Status Reporting based on query</h5>
+      </div>
+      <small>Aug 2014</small>
+      <p class="mb-1">
+        During production stage various type of information is required like daily progress items and problems items.
+        Manually fetching and sharing this information is very tedius work.
+        This tool helps in doing that work. 
+        User need to provide query which fetches information, subject & email id in configuration file.
+        Then just schedule it in crontab with application and configuration file as argument.
+        It supports multiple queries as well.
+      </p>
+    </a>
+    <a (click)="open('sus')" class="list-group-item list-group-item-action flex-column align-items-start">
+      <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Server Up Status</h5>
+        <small>Mar 2013</small>
+      </div>
+      <p class="mb-1">Some time we need quick view of env to know status whether servers are up or not.
+          http://simrond09:8181/ProcedureSite/AMX/UnixServerStatus.jsp this tool give you same.
+          It will be most useful to us when testing team start using it and doesn’t open defect which is caused by env being down.
+          Let me know your suggestions for same.
+          </p>
+      <small>/UnixServerStatus.jsp -_-_-_-_-_-_-_-_-_-_-_-_-_</small>
+    </a>
+    <a (click)="open('sdu')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h3 class="mb-1">Safe DB Update</h3>
+        <small>Apr 2016</small>
       </div>
       Human error is big threat to data when update runs on production data. This tool is created to prevent it. 
       Not good enough, consider it as POC. It works for simple query only.
@@ -56,110 +175,72 @@
       </ul>
       <small>-_-_-_-_-_-_-_-_-_-_-_-_-_</small>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('bfc')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">BPM Flow creator</h5>
+        <h3 class="mb-1">BPM Flow creator</h3>
+        <small>Dec 2014</small>
       </div>
-      <p class="mb-1">I created tool to simplify flow of bpm map, written in xml. Please use it and let me know if doesn’t give intended results. It’s in prototype state.
-          Please use it to decide which activity should be loaded next.
-          
-          Steps.
-          Follow steps exactly due to hard coded coding. Will take hard coding in next version.
-          Extract attached zip file in c:\code directory. It will contain three files BpmMapFlow.bat, BpmMapFlow.txt, BpmMapFlow.jar.
-          Using following query to get xml of for the flow you are interested in.
-          select tpi.objid, tp.definition, tp.description, tp.mangled_name, save_count from prdoms.table_bpm_proc_inst tpi, prdoms.table_bpm_process tp 
-          where tpi.root2proc_inst=(select case_id from prdoms.tborder_action where order_unit_id = '220730845')
-          and tp.objid =tpi.process2process ;
-          Copy the xml from definition column and put it in BpmMapFlow.txt file.
-          Double click on bat file to run it.
-          </p>
+      <p class="mb-1">Amdocs business process manager support GUI based flow creation and stores generated flow in xml.
+        Most of the time only xml is availble to analysis. Which was difficult to understand and impossible to create complete flow picture.
+        Created this tool to create flow which is written in xml. There are multiple ways to represent flow information.
+        Experimented with different view and found pointer/reference based presentation is more clearer. Added X indentifer at suffix to tell this is pointer.
+      </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Product Integrity Check</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Product Validator</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Stuck order error group creator</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Jar fetcher</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Complete order log emailing</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Graph creator</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">SQL Validator and Tracker</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">TRB request creator</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">BPT Verification</h5>
       </div>
       <p class="mb-1">XX</p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">LogToHtmlConverter </h5>
-      </div>
-      <p class="mb-1">#Server Running text indicator
-          ServerRunning = Server started in RUNNING mode
-          
-          #List of Exceptions
-          Exceptions = amdocs.csm3g.exceptions.CMException,amdocs.epi.datamanager.ConnectorException,amdocs.epi.datamanager.ObjectNotFoundException,
-          
-          #List of Request and Response
-          RequestResponse = IServiceabilityServicesCheckServiceabilityInputs,IServiceabilityServicesCheckServiceabilityResults,
-          
-          #Logs text which you don't want to see
-          Garbage = Refreshing the logical date,Logical date retrieved
-          
-          #To fetch detials of step and order action, splitting log with '|', now need column id as it varies log to log (Id start with 0)
-          Step.time = 2
-          Step.step = 6
-          Step.orderAction = 7
-          Step.activity = 8
-          
-        
-Attached zip file contains
-Weblogic configuration file LogToHtmlConverter.properties
-Websphere configuration file LogToHtmlConverter.propertiesWES
-Sample stdout_20101123_005457.log and generated html stdout_20101123_005457.log.html
-LogToHtml.jar
-
-</p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Reason code reconciliation tool</h5>
       </div>
@@ -171,7 +252,7 @@ LogToHtml.jar
           
           </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">Sonar</h5>
       </div>
@@ -208,7 +289,7 @@ LogToHtml.jar
           rules.csv – This is generated from sonar. Below is screen shot for same.
           </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">HF Dependency Resolver</h5>
       </div>
@@ -236,7 +317,7 @@ LogToHtml.jar
           2months report suggest that we need reject following. We are working on it.
           </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">GDD</h5>
       </div>
@@ -254,57 +335,7 @@ LogToHtml.jar
           Major challenge is having excel like filter on data. Your suggestions are welcome.
           </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Performance Log Analysis</h5>
-      </div>
-      <p class="mb-1">Attached is one of the good example which shows how easy is to get information from logs.
-          This tool require few adjustment, will see it in this weekend. 
-          However I think person who doesn’t know nothing about performance logging of ordering can also raise red flag when he notices problematic part. Hence we should add step of checking performance log in each build.
-
-          I have created basic program for performance tool.
-          It give below output after processing OrderingPerformanceLog. Attached is same.
-          Need to enhance it for below requirements.
-          Should include heave methods like NPCNode.save, NPCMainNodePHD.init.
-          Add stack count to get idea which timing is included in other timing.
-          Summary section which raises concern for problematic area found during automatic performance analysis.
-          
-          Flow of activity -> NegotiateProductConfigurationSyncImplAug  -> ProductDependenciesActivityImplAug 
-                          55       InnerService = 47 CheckRulesImpl
-                          55       InnerService = 47 ValidateProductCompatibility
-                          55       InnerService = 78 QuoteProductImpl
-                          55              Check = 157
-                          55               Save = 533
-                          55             Commit = 1802
-                          55               Load = 658
-                          55      SDOToActivity = 392
-                          55     ~~~~~TotalTime = 2914
-          
-          
-          Flow of activity -> ProductDependenciesActivityImplAug  -> NegotiateInstallationAddressEmbeddedImplAug  -> DistributePaymentsImplAug 
-                          55              Check = 376
-                          55               Save = 31
-                          55             Commit = 1112
-                          55             Commit = 78
-                          55       InnerService = 125               QuoteProductImpl
-                          55       InnerService = 297               LoadConfigurationImpl
-                          55               Load = 313
-                          55      SDOToActivity = 47
-                          55     ~~~~~TotalTime = 1661
-
-                          Performance tool 8.1 version 2 is enhanced with following features.
-                          select/insert/update query are taken into consideration 
-                          CreateAvailableTreePHD service time is taken into consideration 
-                          enhanced logic for exceptional cases and bug fixes.
-                          Output is shown in html file 
-                          html file contain buttons which show/hide information 
-                          Grey button shows activities which are participating in flow.
-                          Blue button shows all the methods/API/DB calls involved during whole process
-                          Red button shows also those methos/API/DB calls were parsed from log but not taken into consideration due to xyz reason.
-                          
-          </p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">More</h5>
       </div>
@@ -363,71 +394,8 @@ LogToHtml.jar
           This tool give difference of two reports which are created from productsupport site. It was required in order to monitor core case state changes and additional of new core cases
           </p>
     </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Server Status</h5>
-      </div>
-      <p class="mb-1">Some time we need quick view of env to know status whether servers are up or not.
-          http://simrond09:8181/ProcedureSite/AMX/UnixServerStatus.jsp this tool give you same.
-          It will be most useful to us when testing team start using it and doesn’t open defect which is caused by env being down.
-          Let me know your suggestions for same.
-          </p>
-      <small>/UnixServerStatus.jsp -_-_-_-_-_-_-_-_-_-_-_-_-_</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Status Reporting based on query</h5>
-      </div>
-      <p class="mb-1">I have created a program which take the output of the sql and sends it over the email.
-          It is helpful in cases where output we want to show comes directly in select query.
-          It supports multiple select query also.
-          
-          Its usage require two steps
-          Create text file as shown below
-          Schedule it in crontab
-          
-          1.
-          kpr07wls01:/prdsoma1/inf/aimsys/prdsoma1 $ cat simrond/resources/TbapItem.txt
-          #Please note
-          #Query is required to be written in single line
-          #There should not be semi colon at end of query
-          #You can define any number of query. Enusre you when you add query then don't put 0 as preffix. For e.g. Query05 should be written as Query5
-          
-          ToList = GSSIPSGUSCC_BO_TIER25_Leads@amdocs.com,Mike.Rutledge@uscellular.com,USCCO2AOnsiteAETeam@int.amdocs.com,USCDLDataMovementInterfaces@uscellular.com
-          
-          Subject = CustomerId and ApVersionId special character verification
-          
-          Query1 = select count(1) count_of_ap_version_id from tbap_item_nolob_vw@bodsprd A where regexp_like(ap_version_id,'[^0-9]')
-          
-          Query2 = select ap_id, ap_version_id from tbap_item_nolob_vw@bodsprd A where regexp_like(ap_version_id,'[^0-9]')
-          
-          Query3 = select count(1) count_of_customer_id from tbap_item_nolob_vw@bodsprd A where regexp_like(customer_id,'[^0-9]')
-          
-          Query4 = select ap_id, ap_version_id, customer_id from tbap_item_nolob_vw@bodsprd A where regexp_like(customer_id,'[^0-9]')
-          
-          Query5 = select count(1) count_of_rowid from tbap_item_nolob_mv@bodsprd where length(row_id) > 50
-          
-          Query6 = select ap_id, ap_version_id, row_id from tbap_item_nolob_mv@bodsprd where length(row_id) > 50
-          
-          
-          2.
-          0 */3 * * * /prdsoma1/inf/aimsys/prdsoma1/simrond/TbapItem.sh >> /prdsoma1/inf/aimsys/prdsoma1/simrond/logs/TbapItem.log>&1
-          </p>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-      <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">Email Log from production server</h5>
-      </div>
-      <p class="mb-1">I have created tool to email interface log.
-          It works on simple principal, it scans connector log for step with assumption that start and end tag, as provided in request name will encapsulate it completely and email the last set of it.
-          
-          There are two modes.
-          Order Mode : You can provide order action id and it will figure out everything. ☺
-          Step Mode : You can select request or enter manually if doesn’t exist.
-          </p>
-      <small>emailLogs.xhtml-_-_-_-_-_-_-_-_-_-_-_-_-_</small>
-    </a>
-    <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
+
+    <a (click)="open('fta')" class="list-group-item list-group-item-action flex-column align-items-start">
       <div class="d-flex w-100 justify-content-between">
         <h5 class="mb-1">MnP Executor</h5>
       </div>

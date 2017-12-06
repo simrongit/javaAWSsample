@@ -23,6 +23,8 @@ import { AndroidComponent } from './android/android.component';
 import { AmdocsComponent } from './amdocs/amdocs.component';
 import { AboutComponent } from './about/about.component';
 
+import { AboutSimronComponent } from './about-simron/about-simron.component';
+
 export const appRoutes: Routes = [
   {path: '', component: HomeAboutComponent},
   {path: 'nufapp', component: NotUsedFeatureComponent},
@@ -59,6 +61,7 @@ export const appRoutes: Routes = [
   },
   {path: 'and', component: AndroidComponent},
   {path: 'amd', component: AmdocsComponent},
-  {path: 'about', component: AboutComponent}
+  {path: 'about', component: AboutComponent},
+  {path: 'asim', component: AboutSimronComponent}
 ];
 
