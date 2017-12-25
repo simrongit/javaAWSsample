@@ -52,26 +52,31 @@ public class MovieService {
 //		headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
         headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
         HttpEntity<String> entity = new HttpEntity<String>("parameters", headers);
-		ResponseEntity<String> strs = restTemplate.exchange(url, HttpMethod.GET, entity,  String.class);
-		String subtitleLink = 
-		Arrays.asList(strs.getBody().split("<|>")).stream()
-		.filter(str -> str.startsWith("a href=\"/subtitles/"))
-		.findFirst().get()
-		.split("\"")[1];
-		System.out.println(subtitleLink);
-		
-		
-		url = "https://subscene.com"+subtitleLink;
-		strs = restTemplate.exchange(url, HttpMethod.GET, entity,  String.class);
-		String downloadLink = 
-		Arrays.asList(strs.getBody().split("<|>")).stream()
-		.filter(str -> str.startsWith("a href=\"/subtitle/download"))
-		.findFirst().get()
-		.split("\"")[1];
-		
-		url = "https://subscene.com"+downloadLink;
-		
-		System.out.println(">>>>>>>>> "+url);
+        try {
+			ResponseEntity<String> strs = restTemplate.exchange(url, HttpMethod.GET, entity,  String.class);
+			String subtitleLink = 
+			Arrays.asList(strs.getBody().split("<|>")).stream()
+			.filter(str -> str.startsWith("a href=\"/subtitles/"))
+			.findFirst().get()
+			.split("\"")[1];
+			System.out.println(subtitleLink);
+			
+			
+			url = "https://subscene.com"+subtitleLink;
+			strs = restTemplate.exchange(url, HttpMethod.GET, entity,  String.class);
+			String downloadLink = 
+			Arrays.asList(strs.getBody().split("<|>")).stream()
+			.filter(str -> str.startsWith("a href=\"/subtitle/download"))
+			.findFirst().get()
+			.split("\"")[1];
+			
+			url = "https://subscene.com"+downloadLink;
+			
+			System.out.println(">>>>>>>>> "+url);
+        }catch(Exception e) {
+        	url = "";
+        	e.printStackTrace();
+        }
 		
 		return url;
 		

@@ -856,7 +856,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/vma/vma.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div>\n\n<div class=\"page-header\"><h3 align=\"center\">Virtual Machine Allocation App</h3></div>\n\n<ul class=\"nav nav-tabs nav-justified\">\n  <li routerLinkActive=\"active\"><a routerLink=\"vmal\">VM App Login</a></li>\n  <li routerLinkActive=\"active\"><a routerLink=\"vmaal\">Virtual Machine Allocation</a></li>\n  <li routerLinkActive=\"active\"><a routerLink=\"vmaab\">About it</a></li>\n</ul>\n<div>\n\t<router-outlet></router-outlet>\n</div>\n</div>"
+module.exports = "<div>\n\n<div class=\"page-header\"><h3 align=\"center\">Virtual Machine Allocation App</h3></div>\n\n<ul class=\"nav nav-tabs nav-justified\">\n  <li class=\"nav-item\"><a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"vmal\">VM App Login</a></li>\n  <li class=\"nav-item\"><a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"vmaal\">Virtual Machine Allocation</a></li>\n  <li class=\"nav-item\"><a class=\"nav-link\" routerLinkActive=\"active\" routerLink=\"vmaab\">About it</a></li>\n</ul>\n<div>\n\t<router-outlet></router-outlet>\n</div>\n</div>"
 
 /***/ }),
 

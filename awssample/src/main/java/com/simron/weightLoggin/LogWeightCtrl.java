@@ -38,13 +38,13 @@ public class LogWeightCtrl {
 	//org.json.JSONException: Value true of type java.lang.Boolean cannot be converted to JSONObject
 	public Wrapper createEntry(@RequestBody WeightInfo weightInfo) {
 		MandatoryInputs.string(weightInfo.getUserId(), "User Id");
-//		int result = logWeight.storeWeightInfo(weightInfo);
-//		if(result == 1) {
+		int result = logWeight.storeWeightInfo(weightInfo);
+		if(result == 1) {
 			Wrapper wrapper = new Wrapper();
 			wrapper.setB(true);
 			return wrapper;
-//		}else {
-//			throw new CustomException("DB Failure");
-//		}
+		}else {
+			throw new CustomException("DB Failure");
+		}
 	}
 }

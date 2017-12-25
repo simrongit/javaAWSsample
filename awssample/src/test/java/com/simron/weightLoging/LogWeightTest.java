@@ -45,6 +45,7 @@ public class LogWeightTest {
 		Assert.assertNotNull(weightTime.getHour());
 	}
 	
+//	@Test
 	public void getHistory() {
 		List<WeightInfo> weightInfoList = logWeight.getHistory("simron");
 		Assert.assertNotNull(weightInfoList);
@@ -59,8 +60,8 @@ public class LogWeightTest {
 	
 //	@Test
 	public void deleteEntries() {
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		int res = DbInteraction.executeUpdate("delete from weight_log where user_id = ? and creation_date = ?", new String[] {"Simron", "2017-10-11 23:32:12.0"});
+		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH24:mm:ss");
+		int res = DbInteraction.executeUpdate("delete from weight_log where user_id = ? and creation_date = ?", new String[] {"Simron", "2017-12-06 12:00:00.0"}); 
 		Assert.assertEquals(1, res);
 	}
 	

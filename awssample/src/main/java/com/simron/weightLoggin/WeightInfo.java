@@ -2,7 +2,7 @@ package com.simron.weightLoggin;
 
 import java.util.Date;
 
-public class WeightInfo {
+public class WeightInfo implements Cloneable {
 	
 	private Date date;
 	private String userId;
@@ -47,5 +47,7 @@ public class WeightInfo {
 	public void setNote(String note) {
 		this.note = note;
 	}
-	
+	public Object clone() throws CloneNotSupportedException{
+		return super.clone();
+	}
 }
