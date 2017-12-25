@@ -48,6 +48,8 @@ import { AboutSimronComponent } from './about-simron/about-simron.component';
 import { LogToHtmlComponent } from './amdocs/log-to-html/log-to-html.component';
 import { StatusReportingComponent } from './amdocs/status-reporting/status-reporting.component';
 import { ServerUpStatusComponent } from './amdocs/server-up-status/server-up-status.component';
+import { ResumeComponent } from './about-simron/resume/resume.component';
+import { ResumeCompressedComponent } from './about-simron/resume-compressed/resume-compressed.component';
 // import {VmaModule} from './vma/vma.module';
 
 @NgModule({
@@ -65,10 +67,10 @@ import { ServerUpStatusComponent } from './amdocs/server-up-status/server-up-sta
     AmdocsComponent,
     AboutComponent,
     FalloutTrendAnalyzerComponent, SafeDBUpdateComponent, BpmFlowCreatorComponent, EmailServerLogsComponent, PerformanceLogAanalyzerComponent, AboutSimronComponent,
-    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent
+    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent, ResumeComponent, ResumeCompressedComponent
   ],
   entryComponents: [ FalloutTrendAnalyzerComponent, SafeDBUpdateComponent, BpmFlowCreatorComponent, EmailServerLogsComponent, PerformanceLogAanalyzerComponent,
-    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent ],
+    LogToHtmlComponent, StatusReportingComponent, ServerUpStatusComponent, ResumeComponent, ResumeCompressedComponent ],
   imports: [
     BrowserModule,
     HttpModule,
@@ -86,7 +88,7 @@ import { ServerUpStatusComponent } from './amdocs/server-up-status/server-up-sta
   providers: [HttpService, // PasswdService,
     ShareDataService,
     Location,
-    {provide: LocationStrategy, useClass: PathLocationStrategy}],
+    {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule {
