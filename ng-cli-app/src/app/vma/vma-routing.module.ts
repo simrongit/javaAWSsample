@@ -10,7 +10,8 @@ const routes: Routes = [
     path: '', component: VmaComponent, children: [
       {path: 'vmal', component: VmaLoginComponent},
       {path: 'vmaal', component: VmaAllocationComponent},
-      {path: 'vmaab', component: VmaAboutComponent}]
+      {path: 'vmaab', component: VmaAboutComponent},
+      {path: '', redirectTo: 'vmaab', pathMatch: 'full'}]
   }];
 
 @NgModule({

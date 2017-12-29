@@ -36,7 +36,8 @@ export const appRoutes: Routes = [
       {path: 'pdec', component: PasswddecryptComponent},
       {path: 'pSave', component: PasswdSaveComponent},
       {path: 'pRet', component: PasswdRetrieveComponent},
-      {path: 'pAbout', component: PasswdAboutComponent}
+      {path: 'pAbout', component: PasswdAboutComponent},
+      {path: '', redirectTo: 'pAbout', pathMatch: 'full'}
     ]
   },
   {
@@ -44,6 +45,7 @@ export const appRoutes: Routes = [
     children: [
       {path: 'ggt', component: GgtComponent},
       {path: 'ggs', component: GgsComponent},
+      {path: '', redirectTo: 'ggs', pathMatch: 'full'}
     ]
   },
   {path: 'luhnapp', component: LuhnalgComponent},
@@ -57,6 +59,7 @@ export const appRoutes: Routes = [
       {path: 'mi', component: MovieInfoComponent},
       {path: 'ml', component: MovieListComponent},
       {path: 'mp', component: MovieParsedComponent},
+      {path: '', redirectTo: 'mi', pathMatch: 'full'}
     ]
   },
   {path: 'and', component: AndroidComponent},

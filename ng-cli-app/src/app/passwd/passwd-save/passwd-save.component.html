@@ -5,8 +5,8 @@
 	      <span class="input-group-addon">
 			<input type="checkbox" class="checkbox-primary" [(ngModel)]="existingUser">
 	      </span>
-	      <span *ngIf="existingUser" class="help-block">Existing User</span>
-	      <span *ngIf="!existingUser" class="help-block">Create New User for saving password</span>
+	      <span *ngIf="existingUser" class="form-text text-muted">Existing User</span>
+	      <span *ngIf="!existingUser" class="form-text text-muted">Create New User for saving password</span>
 	    </div><!-- /input-group -->
 	</div><!-- /row -->
 	
@@ -48,7 +48,7 @@
 	</div>
 	
 	<div class="form-group"  >
-	<span class="help-block" [innerHTML]="message"></span>
+	<span class="form-text text-muted" [innerHTML]="message"></span>
 	</div>
 
 

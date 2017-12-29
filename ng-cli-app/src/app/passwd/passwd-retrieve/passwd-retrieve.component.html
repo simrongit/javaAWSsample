@@ -19,7 +19,7 @@
 			<button class="btn btn-primary" type="button" [disabled]="!passwdSaveInfo.userId || !passwdSaveInfo.passCode || (passwdSaveInfo.passCode && (passwdSaveInfo.passCode.match('[^0-9]') || passwdSaveInfo.passCode.length != 4))" (click)="submitInput()">Submit to get list</button>
 		</div>
 	</div>
-	<span class="help-block" [innerHTML]="message"></span>
+	<span class="form-text text-muted" [innerHTML]="message"></span>
 	<div *ngIf="retrieved">
 		<table class="table">
 			<tr>
