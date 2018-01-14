@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/displayDataLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/dateTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="01/01/0001"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/itemTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Item"
+        app:layout_constraintBaseline_toBaselineOf="@+id/dateTV"
+        app:layout_constraintStart_toEndOf="@+id/dateTV" />
+
+    <TextView
+        android:id="@+id/quantityTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="5.0"
+        app:layout_constraintBaseline_toBaselineOf="@+id/itemTV"
+        app:layout_constraintStart_toEndOf="@+id/itemTV" />
+
+    <TextView
+        android:id="@+id/unitTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Kg"
+        app:layout_constraintBaseline_toBaselineOf="@+id/quantityTV"
+        app:layout_constraintStart_toEndOf="@+id/quantityTV" />
+</android.support.constraint.ConstraintLayout>
