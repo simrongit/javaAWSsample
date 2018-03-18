@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.mysql.jdbc.exceptions.jdbc4.CommunicationsException;
+
 /**
  * always create new so that you get new prepared statement to execute
  * @author simro
@@ -46,6 +48,11 @@ public class DbInteraction {
 	 * @param query
 	 * @param parameters
 	 * @return for result null check use length check because its never null
+	 * String[][] data = executeQuery(..
+	 * query = select value from table where key = key
+	 * if no row found for key then data.length will be 0
+	 * if key found but value is null then data.length = 1 and data[0].length = 1 so you can directly check for data[0][0]
+	 * or if key found and value is '' empty string then you will get data[0][0] as empty string
 	 */
 	public static String[][] executeQuery(String query, String[] parameters) {
 		String[][] ret = null;
@@ -54,7 +61,15 @@ public class DbInteraction {
 			for (int i = 0; i < parameters.length; i++) {
 				ps.setString(i + 1, parameters[i]);
 			}
-			ResultSet res = ps.executeQuery();
+			ResultSet res = null;
+			try {
+				res = ps.executeQuery();
+			}catch(CommunicationsException e) {
+				e.printStackTrace();
+				con = null;
+				getConnection();
+				ps.executeQuery();
+			}
 			List<String[]> entriesList = new ArrayList<>();
 			while(res.next()) {
 				String[] entries = new String[res.getMetaData().getColumnCount()];
@@ -87,6 +102,12 @@ public class DbInteraction {
 		return false;
 	}
 	
+	/**
+	 * @param query
+	 * @param parameters
+	 * @return it will return number of rows updated, there are some query which return only 0
+	 * so if it returns -1 then there is problem otherwise you can use returned value to verify your changes
+	 */
 	public static int executeUpdate(String query, String[] parameters) {
 		int res = -1;
 		try {
@@ -136,4 +157,22 @@ public class DbInteraction {
 			e.printStackTrace();
 		}
 	}
+	
+	public static int[] executeBatchInsert(String query, String[][] parametersList) {
+		int res[] = new int[0];
+		try {
+			PreparedStatement ps = con.prepareStatement(query);
+			for(String[] parameters : parametersList){
+				for (int i = 0; i < parameters.length; i++) {
+					ps.setString(i + 1, parameters[i]);
+				}
+				ps.addBatch();
+			}
+			res = ps.executeBatch();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
 }
