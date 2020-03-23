@@ -19,7 +19,7 @@ public class CrossFitTest {
 		Assert.assertNotNull(data);
 	}
 	
-	@Test
+//	@Test
 	public void minMaxTest() {
 		CrossFit cf = new CrossFit();
 		MinMaxExDate data = cf.getExDates();
