@@ -1,0 +1,81 @@
+<html>
+<head>
+<script>
+function allm() {
+comma();
+commaspace();
+singlequotes();
+google();
+}
+function comma() {
+var list = document.getElementById("i1").value.split('\n');
+var ret = list.join(',');
+console.log(ret);
+document.getElementById("p1").value = ret;
+}
+function commaspace() {
+var list = document.getElementById("i1").value.split('\n');
+var ret = list.join(', ');
+console.log(ret);
+document.getElementById("p2").value = ret;
+}
+function singlequotes() {
+var list = document.getElementById("i1").value.split('\n');
+var ret = list.join('\',\'');
+console.log(ret);
+document.getElementById("p3").value = ret;
+}
+function google() {
+var key = document.getElementById("i2").value;
+var list = document.getElementById("i1").value.split('\n');
+var size = document.getElementById("i3").value;
+var newList = list.splice(0,size);
+var ret="";
+while(newList.length > 0) {
+var newret = newList.join(','+key+':'+key+'=');
+newret = '=or('+key+':'+key+'='+newret+')\n';
+ret += newret;
+newList = list.splice(0,size);
+}
+console.log(ret);
+document.getElementById("p4").value = ret;
+}
+function copy(copyText) {
+copyText.select();
+copyText.setSelectionRange(0, 99999);
+document.execCommand("copy");
+}
+</script>
+</head>
+<body onload="allm()">
+
+<table width="100">
+<tr>
+<td>
+<textarea id="i1" onkeyup="allm()" rows="60" cols="50">A&#13;&#10;B&#13;&#10;C</textarea>
+</td>
+<td>
+<table>
+<tr><td>
+<textarea id="p1" rows="14" cols="50" onfocus="copy(this)"></textarea>
+</td></tr>
+<tr><td>
+<textarea id="p2" rows="14" cols="50" onfocus="copy(this)"></textarea>
+</td></tr>
+<tr><td>
+<textarea id="p3" rows="14" cols="50" onfocus="copy(this)"></textarea>
+</td></tr>
+<tr><td>
+<input id="i2" value="B" onkeyup="google()"></input><input id="i3" value=4 onkeyup="google()"></input>
+</td></tr>
+<tr><td>
+<textarea id="p4" rows="14" cols="50" onfocus="copy(this)"></textarea>
+</td></tr>
+</table>
+</td>
+</tr>
+</table>
+
+
+</body>
+</html>
